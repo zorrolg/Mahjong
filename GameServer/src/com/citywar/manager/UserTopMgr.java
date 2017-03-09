@@ -95,7 +95,6 @@ public class UserTopMgr {
      */
     public static boolean reload()
     {
-    	
     	if(null == Word_Map) {
     		return false;
     	}
@@ -142,29 +141,37 @@ public class UserTopMgr {
         }
         
         
-//        List<PlayerInfo> StageTop = PlayerBussiness.getCharmValvesTopByStage();
-//		for (StageInfo stage:  StageMgr.getAllStage().values()) 
-//		{
-//			
-//			List<PlayerInfo> nowstageList = new LinkedList<PlayerInfo>();
-//			Map<Integer,PlayerInfo> nowstageMap = new HashMap<Integer,PlayerInfo>();
-//			LinkedHashMap<Integer, String> nowStageTop = new LinkedHashMap<Integer, String>();
-//			for(PlayerInfo info : StageTop)
-//			{
-//				if(info.getStageId() == stage.getStageId())
-//				{
-//					nowstageList.add(info);
-//					nowstageMap.put(info.getUserId(), info);
-//					
-//					if(nowStageTop.size() < 3)
-//						nowStageTop.put(info.getUserId(),info.getPicPath());
-//				}
-//			}
-//			
-//			tempStage_List.put(stage.getStageId(), nowstageList);
-//			tempStage_Map.put(stage.getStageId(), nowstageMap);
-//			temp_Stage_List_Top.put(stage.getStageId(), nowStageTop);
-//		}
+
+        
+        
+        
+ 
+        
+        
+        
+        List<PlayerInfo> StageTop = PlayerBussiness.getCharmValvesTopByStage();
+		for (StageInfo stage:  StageMgr.getAllStage().values()) 
+		{
+			
+			List<PlayerInfo> nowstageList = new LinkedList<PlayerInfo>();
+			Map<Integer,PlayerInfo> nowstageMap = new HashMap<Integer,PlayerInfo>();
+			LinkedHashMap<Integer, String> nowStageTop = new LinkedHashMap<Integer, String>();
+			for(PlayerInfo info : StageTop)
+			{
+				if(info.getStageId() == stage.getStageId())
+				{
+					nowstageList.add(info);
+					nowstageMap.put(info.getUserId(), info);
+					
+					if(nowStageTop.size() < 3)
+						nowStageTop.put(info.getUserId(),info.getPicPath());
+				}
+			}
+			
+			tempStage_List.put(stage.getStageId(), nowstageList);
+			tempStage_Map.put(stage.getStageId(), nowstageMap);
+			temp_Stage_List_Top.put(stage.getStageId(), nowStageTop);
+		}
 
 		lockStage.writeLock().lock(); 
         try

@@ -2,9 +2,10 @@ package com.citywar.gameobjects.mahjong;
 
 import java.util.Collection;
 
+import com.citywar.gameobjects.TileType;
+
 /**
  * 牌的单元的类型。
- * 
  */
 public interface TileUnitType {
 

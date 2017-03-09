@@ -17,7 +17,7 @@ public interface TileRank<T extends TileRank<T>> extends Comparable<T> {
 	 */
 	public enum NumberRank implements TileRank<NumberRank> {
 		// 顺序勿动！ofNumber依赖顺序
-		YI(1), ER(2), SAN(3), SI(4), WU(5), LIU(6), QI(7), BA(8), JIU(9);
+		ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9);
 
 		private final int number;
 
@@ -36,15 +36,31 @@ public interface TileRank<T extends TileRank<T>> extends Comparable<T> {
 
 	/**
 	 * 字牌的种类。
+	 * <ul>
+	 * 	<li>东
+	 * 	<li>南
+	 * 	<li>西
+	 * 	<li>北
+	 * </ul>
 	 */
 	public enum ZiRank implements TileRank<ZiRank> {
-		DONG_FENG, NAN, XI, BEI, ZHONG, FA, BAI
+		EAST, SOUTH, WEST, NORTH, CENTRE, FORTUNE, BLANK
 	}
 
 	/**
 	 * 花牌的种类。
+	 * <ul>
+	 * 	<li>春
+	 * 	<li>夏
+	 * 	<li>秋
+	 * 	<li>冬
+	 * 	<li>梅
+	 * 	<li>兰
+	 * 	<li>竹
+	 * 	<li>菊
+	 * </ul>
 	 */
 	public enum HuaRank implements TileRank<HuaRank> {
-		CHUN, XIA, QIU, DONG_HUA, MEI, LAN, ZHU, JU
+		SPRING, SUMMER, AUTUMN, WINTER, PLUM, ORCHID, BAMBOO, CHRYSANTHEMUM
 	}
 }

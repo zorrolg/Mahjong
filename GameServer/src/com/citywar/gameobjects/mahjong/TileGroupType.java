@@ -7,8 +7,8 @@ import java.util.Set;
 /**
  * 牌组类型。
  * 
- * @author blovemaple <blovemaple2010(at)gmail.com>
  */
+
 public enum TileGroupType {
 	/**
 	 * 吃

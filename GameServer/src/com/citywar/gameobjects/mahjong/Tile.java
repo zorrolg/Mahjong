@@ -2,6 +2,7 @@ package com.citywar.gameobjects.mahjong;
 
 import java.util.List;
 
+import com.citywar.gameobjects.TileType;
 import com.google.common.collect.Lists;
 
 public class Tile {
@@ -11,7 +12,6 @@ public class Tile {
 	public TileType type;
 
 	public static List<Tile> all;
-
 
 	//	public static final Tile W1_1 = new Tile(0x04);
 	//	public static final Tile W1_2 = new Tile(0x05);
@@ -77,12 +77,27 @@ public class Tile {
 	public Tile(byte code) {
 		this.code = code;
 	}
-
+	/**
+	 * 花色
+	 * <ul>
+	 * 	<li>万</li>
+	 * 	<li>条</li>
+	 * 	<li>筒</li>
+	 * 	<li>字</li>
+	 * </ul>
+	 * @return
+	 */
 	public byte getTileTypeIndex() {
 		byte type = (byte) ((this.code >> 6) & 0x03);
 		return type;
 	}
 
+	/**
+	 * 花色的子类型
+	 * 万 （1-9万）
+	 * 。。。
+	 * @return
+	 */
 	public byte getTileSubType() {
 		byte type = (byte) ((this.code >> 2) & 0x0F);
 		return type;
@@ -112,6 +127,10 @@ public class Tile {
 		return (byte)(getTileIndex() + 1);
 	}
 
+
+	public TileType type() {
+		return this.type;
+	}
 	public static void main(String[] args) {
 		//		System.out.println(Tile.W3_4.code);
 		//		System.out.println(Tile.W3_4.getTileTypeIndex());
