@@ -7,6 +7,8 @@ import static java.util.Collections.singletonList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,9 +20,9 @@ import com.citywar.gameobjects.mahjong.TileUnitType;
 
 
 /**
- * 一些标准的TileUnitType。 TODO TileUnitType拆分成单独的类、优化逻辑
+ * 一些标准的TileUnitType。
+ *  TODO TileUnitType拆分成单独的类、优化逻辑
  * 
- * @author blovemaple <blovemaple2010(at)gmail.com>
  */
 public enum DefaultTileUnitType implements TileUnitType {
 	/**
@@ -29,7 +31,8 @@ public enum DefaultTileUnitType implements TileUnitType {
 	JIANG(2) {
 		@Override
 		protected boolean isLegalTilesWithCorrectSize(Collection<Tile> tiles) {
-			return tiles.stream().map(Tile::type).distinct().count() == 1;
+			HashSet<Tile> hashSet = new HashSet<>(tiles);
+			return hashSet.size() == 1;
 		}
 
 		@Override
@@ -50,7 +53,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 		@Override
 		protected boolean isLegalTilesWithCorrectSize(Collection<Tile> tiles) {
 			// rank类型非NumberRank的，非法
-			if (tiles.iterator().next().type().getRankClass() != NumberRank.class)
+			if (tiles.iterator().next().type().rank() != NumberRank.class)
 				return false;
 
 			// 花色有多种的，非法
@@ -243,6 +246,11 @@ public enum DefaultTileUnitType implements TileUnitType {
 		return isLegalTilesWithCorrectSize(tiles);
 	}
 
+	/**
+	 * 检查类型和size是否合法Unit
+	 * @param tiles
+	 * @return
+	 */
 	protected abstract boolean isLegalTilesWithCorrectSize(Collection<Tile> tiles);
 
 	@Override
