@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="deploy-all" name="DICE_ROAD" basedir="../.">
+	<description>
+		版本自动编译打包脚本 [ add by tracy : 2011-12-20 ]
+	</description>
+
+	<echo>start to build Ufun_Dice...</echo>
+	<echo>${basedir}</echo>
+
+	<!--发布变量设置-->
+	<property name="myhost" value="10.10.7.85" />
+	<property name="host" value="58.60.230.245" />
+	<property name="resourcehost" value="58.60.230.245" />
+	<property name="user" value="root" />
+	<property name="password" value="loveUfun" />
+	<property name="myserverid" value="4" />
+	<property name="hostserverid" value="3" />
+	<property name="dts-version" value="dice" />
+
+	<!--定义相关编译变量-->
+	<property name="is-debug" value="on" />
+	<property name="java-version" value="1.6" />
+	<property name="app-version" value="3.0" />
+	<property name="webapp-version" value="3.0" />
+	<property name="exclude-svn" value="**/*.svn/*.*,servlet-api.jar" />
+	<property name="exclude-local" value="*.propertieslocal" />
+
+	<!--输入变量定义-->
+	<property name="config" value="${basedir}/Lib/config" />
+	<property name="libs" value="${basedir}/Lib" />
+	<property name="util" value="${basedir}/Util" />
+	<property name="dao" value="${basedir}/Dao" />
+	<property name="baseserver" value="${basedir}/BaseServer" />
+	<property name="gameserver" value="${basedir}/GameServer" />
+	<property name="gamelogic" value="${basedir}/GameLogic" />
+	<property name="diceweb" value="${basedir}/DiceWeb" />
+	<!--
+	<property name="tools-dts" value="${basedir}/Tools" />
+	-->
+
+	<!--定义最终文件输出路径-->
+	<property name="lib-out" value="${basedir}/deploy/lib" />
+	<property name="app-out" value="${basedir}/deploy/app" />
+	<property name="web-out" value="${basedir}/deploy/web" />
+	<property name="gameserver-out" value="${app-out}/gameserver" />
+	<property name="diceweb-out" value="${web-out}/DiceWeb" />
+	<!--
+	<property name="tools-dts-out" value="${app-out}/tools/dts"/>
+	-->
+
+	<!-- 项目编译时需要引用的 classpath -->
+	<path id="lib-out">
+		<fileset dir="${basedir}/deploy/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Web 项目编译时需要引用的 classpath -->
+	<path id="web-api">
+		<fileset dir="${basedir}/apache-tomcat-6.0.26/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+
+	<!-- 自动上传设置 -->
+	<property name="ftpserverdir" value="/usr/local/iPhone/dice" />
+	<property name="gameserverdir" value="${host}:${ftpserverdir}/app/gameserver" />
+	<property name="dicewebdir" value="${host}:${ftpserverdir}/web/DiceWeb" />
+	<property name="webdir" value="${host}:${ftpserverdir}/web" />
+	<!--
+	<property name="dtsdir" value="${host}:${ftpserverdir}/tools/dts" />
+	-->
+
+	<!-- 清除已生成的旧版本文件 -->
+	<target name="clean">
+		<delete dir="${app-out}" />
+		<delete dir="${web-out}" />
+		<delete dir="${lib-out}" />
+	</target>
+
+	<!-- 创建部署文件所需路径 -->
+	<target name="init" depends="clean">
+		<mkdir dir="${lib-out}" />
+		<mkdir dir="${app-out}" />
+		<mkdir dir="${app-out}/config" />
+
+		<!-- GameServer -->
+		<mkdir dir="${gameserver-out}" />
+		<mkdir dir="${gameserver-out}/lib" />
+		<mkdir dir="${gameserver-out}/config" />
+
+		<!-- Web -->
+		<mkdir dir="${web-out}" />
+		<mkdir dir="${web-out}/DiceWeb/WEB-INF/lib" />
+
+	</target>
+
+	<!-- 打包基础组件 -->
+	<target name="deploy-basic" depends="init">
+		<copydir src="${libs}/config" dest="${app-out}/config" excludes="${exclude-local}/" />
+		<copydir src="${libs}/lib" dest="${lib-out}/" />
+		<copy file="${libs}/config/${host}.propertieslocal" tofile="${app-out}/config/db.properties" overwrite="true" />
+
+		<!--打包util-->
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${util}/src" destdir="${util}/bin" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+		</javac>
+		<jar basedir="${util}/bin" destfile="${lib-out}/dice_util_${app-version}.jar" />
+
+		
+		<!--打包dao-->
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${dao}/src" destdir="${dao}/bin" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+		</javac>
+		<jar basedir="${dao}/bin" destfile="${lib-out}/dice_dao_${app-version}.jar" />
+
+		
+		<!--打包baseserver-->
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${baseserver}/src" destdir="${baseserver}/bin" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+		</javac>
+		<jar basedir="${baseserver}/bin" destfile="${lib-out}/dice_baseserver_${app-version}.jar" />
+
+	</target>
+
+
+	<!-- 编译GameServer -->
+	<target name="compile-gameserver" depends="deploy-basic">
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${gameserver}/src" destdir="${gameserver}/bin" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+		</javac>
+	</target>
+
+	<!-- 编译Request -->
+	<target name="compile-diceweb" depends="deploy-basic">
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${diceweb}/src" destdir="${diceweb}/build/classes" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+			<classpath refid="web-api" />
+		</javac>
+	</target>
+
+
+	<!-- 编译Tools-DTS -->
+	<!--
+	<target name="compile-tools-dts" depends="deploy-basic">
+		<javac encoding="utf-8" includeAntRuntime="false" srcdir="${tools-dts}/src" destdir="${tools-dts}/bin" source="${java-version}" target="${java-version}" debug="${is-debug}">
+			<classpath refid="lib-out" />
+		</javac>
+	</target>
+	-->
+
+
+	<!-- 打包GameServer -->
+	<target name="deploy-gameserver" depends="compile-gameserver">
+		<copydir src="${lib-out}" dest="${gameserver-out}/lib" excludes="${exclude-svn}" />
+		<!-- 需要打包炮弹和地图时去掉即可-->
+		<!--
+		<copydir src="${libs}/map" dest="${gameserver-out}/map" excludes="${exclude-svn}" />
+		<copydir src="${libs}/bomb" dest="${gameserver-out}/bomb" excludes="${exclude-svn}" />
+		-->
+		<copydir src="${libs}/language" dest="${gameserver-out}/language" excludes="${exclude-svn}" />
+		<copydir src="${libs}/file" dest="${gameserver-out}/file" excludes="${exclude-svn}" />
+		<copy file="${app-out}/config/log4j.properties" todir="${gameserver-out}/config/" />
+		<copy file="${app-out}/config/db.properties" todir="${gameserver-out}/config/" />
+		<copy file="${libs}/bat/StartGS.bat" todir="${gameserver-out}/" />
+		<copy file="${libs}/sh/gameserver.sh" todir="${gameserver-out}/" />
+		<copy file="${libs}/sh/gameserver_manager.sh" todir="${gameserver-out}/" />
+		<copy file="${libs}/config/GameServerConfig.properties" todir="${gameserver-out}/config/" />
+		<replace file="${gameserver-out}/config/GameServerConfig.properties" token="${myhost}" value="${host}" />
+		<replace file="${gameserver-out}/config/GameServerConfig.properties" token="../Lib/config" value="config" />
+		<replace file="${gameserver-out}/config/GameServerConfig.properties" token="../Lib/language" value="language" />
+		<replace file="${gameserver-out}/config/GameServerConfig.properties" token="../Lib/file" value="file" />
+		<replace file="${gameserver-out}/config/GameServerConfig.properties" token="server.id=${myserverid}" value="server.id=${hostserverid}" />
+		<jar basedir="${gameserver}/bin" destfile="${gameserver-out}/ddt_gameserver_${app-version}.jar">
+			<manifest>
+				<attribute name="Main-Class" value="com.citywar.GameServer" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- 打包DiceWeb -->
+	<target name="deploy-diceweb" depends="compile-diceweb">
+		<copydir src="${diceweb}/WebContent/WEB-INF" dest="${diceweb-out}/WEB-INF" excludes="${exclude-svn}" />
+		<copydir src="${lib-out}" dest="${diceweb-out}/WEB-INF/lib" excludes="${exclude-svn},dice_gamelogic_${app-version}.jar,dice_baseserver_${app-version}.jar" />
+		<copydir src="${libs}/language" dest="${diceweb-out}/WEB-INF/language" excludes="${exclude-svn}" />
+		<replace file="${diceweb-out}/WEB-INF/DiceWebConfig.properties" token="${myhost}" value="${host}" />
+		<replace file="${diceweb-out}/WEB-INF/web.xml" token="${basedir}\DiceWeb\WebContent\WEB-INF\" value="/usr/local/iPhone/dice/web/DiceWeb/WEB-INF/" />
+		<replace file="${diceweb-out}/WEB-INF/web.xml" token="${basedir}\DiceWeb\WebContent\WEB-INF\image\" value="/usr/local/iPhone/dice/web/DiceWeb/image/" />
+		<replace file="${diceweb-out}/WEB-INF/DiceWebConfig.properties" token="${request-language}" value="/usr/local/iPhone/dice/web/DiceWeb/language/" />
+		<copy file="${app-out}/config/log4j.properties" todir="${diceweb-out}/WEB-INF" overwrite="true" />
+		<copy file="${app-out}/config/db.properties" todir="${diceweb-out}/WEB-INF" overwrite="true" />
+		<jar basedir="${diceweb}/build/classes" destfile="${diceweb-out}/WEB-INF/lib/dice_dice_${app-version}.jar" />
+	</target>
+
+	<!-- 打包Tools-DTS -->
+	<!--
+	<target name="deploy-tools-dts" depends="compile-tools-dts">
+		<copydir src="${lib-out}" dest="${tools-dts-out}/lib" excludes="${exclude-svn}" />
+		<copydir src="${tools-dts}/${dts-version}" dest="${tools-dts-out}/${dts-version}" excludes="${exclude-svn}" />
+		<copy file="${app-out}/config/log4j.properties" todir="${tools-dts-out}/config/" />
+		<copy file="${tools-dts}/config/db.ini" todir="${tools-dts-out}/config/" />
+		<copy file="${tools-dts}/config/Dts_Config.xml" todir="${tools-dts-out}/config/" />
+		<copy file="${libs}/sh/tools-dts.sh" todir="${tools-dts-out}/" />
+		<jar basedir="${tools-dts}/bin" destfile="${tools-dts-out}/ddt_tools_dts_${app-version}.jar">
+			<manifest>
+				<attribute name="Main-Class" value="com.road.dts.DtsTools" />
+			</manifest>
+		</jar>
+	</target>
+	-->
+
+	<target name="upload-server" depends="deploy-all">
+		<echo>==========================start upload==========================</echo>
+
+
+
+		<!-- 上传GameServer到 FTP 服务器-->
+		<scp todir="${user}:${password}@${gameserverdir}" trust="true" verbose="true">
+			<fileset dir="${gameserver-out}">
+			</fileset>
+		</scp>
+
+		<!-- 上传DiceWeb到 FTP 服务器-->
+		<scp todir="${user}:${password}@${dicewebdir}" trust="true" verbose="true">
+			<fileset dir="${diceweb-out}">
+			</fileset>
+		</scp>
+
+		<!-- 上传tools-dts到  FTP 服务器-->
+		<!--
+		<scp todir="${user}:${password}@${dtsdir}" trust="true" verbose="true">
+			<fileset dir="${tools-dts-out}">
+			</fileset>
+		</scp>
+		-->
+
+
+		<echo>==========================end upload=====================================</echo>
+	</target>
+
+
+	<!--
+	<target name="deploy-tools" depends="deploy-tools-dts" />
+	-->
+
+	<target name="deploy-all" depends="clean, deploy-gameserver, deploy-diceweb" />
+
+</project>

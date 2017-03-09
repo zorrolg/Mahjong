@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Lib/lib/log4j-1.2.16.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Util"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Dao"/>
+	<classpathentry kind="lib" path="/Lib/lib/slf4j-api-1.5.10.jar"/>
+	<classpathentry kind="lib" path="/Lib/lib/javax.websocket-api.jar"/>
+	<classpathentry kind="lib" path="/Lib/lib/pengyou-java-sdk-v1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Lib/lib/mina-core-2.0.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

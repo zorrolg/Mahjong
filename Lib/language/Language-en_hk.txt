@@ -1,0 +1,105 @@
+﻿#繁体中文包
+Game.Server.Hello: Hello.
+
+
+
+CityWar.GameName:夜店大話王.
+CityWar.Game.WelcomeLetter:親，歡迎進入夜店大話王！ 玩骰子、吹牛、喝酒、so happy，so crazy！想結識更多朋友嗎？趕緊註冊並完善個人資料吧， 妳懂的！
+CityWar.Game.GiftSenderName:夜店大話王
+CityWar.Game.GiftSenderRemark:祝妳玩得開心---夜店大話王
+CityWar.Game.ChargeLetter:您充值购买的(%s)购买成功！
+
+
+
+CityWar.Login.Fail1:Login failed.
+CityWar.Login.Fail2:Login failed..
+CityWar.Login.Success:Log in successfully.
+CityWar.VisualizeRegister.Fail1:Failed to registered a character.
+CityWar.VisualizeRegister.Success:Succefully registered a character.
+CityWar.VisualizeRegister.Long:User name is too long.
+CityWar.VisualizeRegister.Illegalcharacters:User name contains illegal characters.
+
+
+CityWar.NickNameCheck.Exist:帐号已存在，请尝试其他帐号.
+CityWar.NickNameCheck.Long:帐号格式错误.
+CityWar.UserUpdate.Wrong:格式错误，请验证输入内容.
+CityWar.VisualizeRegister.Illegalcharacters:昵稱包含敏感字符，請嘗試其他昵稱..
+
+
+
+CityWar.BuildUpdate.AlreadyUpgrade:已完成該等級.
+CityWar.BuildUpdate.IsBuild:正在建造中.
+CityWar.BuildUpdate.NotEnoughCoin:金幣不足.
+
+
+CityWar.BuildUpdate.NeedType2:需要實驗室%s級，請先完成實驗室升級.
+CityWar.BuildUpdate.NeedType3:需要工廠%s級，請先完成工廠升級.
+CityWar.BuildUpdate.NeedType4:需要倉庫%s級，請先完成倉庫升級.
+
+
+CityWar.CardDevelopUpdate.NoRight:研發條件不足.
+CityWar.CardDevelopUpdate.NeedBuildLevel:研發建築等級不足.
+CityWar.CardDevelopUpdate.AlreadyUpgrade:已完成該等級.
+CityWar.CardDevelopUpdate.IsBuild:正在建造中.
+CityWar.CardDevelopUpdate.NotEnoughCoin:金幣不足.
+CityWar.CardDevelopUpdate.NotEnoughPlace:空間不足.
+CityWar.CardDevelopUpdate.NotEnoughCoin:鉆石不足.
+CityWar.CardDevelopUpdate.NotEnoughCoin:升級卡片星級等級條件不足.
+CityWar.CardDevelopUpdate.NotEnoughCoin:需要升級卡片星級.
+
+
+CityWar.CardFactoryUpdate.AlreadyUpgrade:已完成該等級.
+CityWar.CardFactoryUpdate.AlreadyUpgrade:超出存儲限制.
+CityWar.CardFactoryUpdate.NotEnoughCoin:金幣不足.
+
+CityWar.CardQuick.NoFactoryList:沒有生產隊列.
+CityWar.CardQuick.NoPlace:沒有足夠的背包空間.
+CityWar.CardQuick.TimeWrong:時間錯誤.
+CityWar.CardQuick.NotEnoughMoney:金幣不足.
+
+CityWar.CardQuickBuy.WrongCoin:参数错误.
+CityWar.CardQuickBuy.NoCard:没有购买该卡片的权限.
+CityWar.CardQuickBuy.NotEnoughPlace:没有足够的背包空间.
+CityWar.CardQuickBuy.NotEnoughMoney:钻石不足.
+
+
+
+
+
+
+
+CityWar.Vip.Push:贵族降临!恭喜玩家(%s)成为尊贵的VIP会员!
+CityWar.Vip.Letter:恭喜!您已成为VIP会员, 会员到期时间为(%s)
+
+
+
+
+CityWar.EnterHall.NoRight:您的等級不能進入該大廳
+CityWar.EnterRoom.NoEnoughCoin:您的金币不足，无法进入房间
+CityWar.StayRoom.NoEnoughCoin:您的金币不足，无法在房间继续游戏
+
+
+CityWar.EnterRoom.Fail1:进入大厅失败
+CityWar.EnterRoom.Fail2:创建房间失败，请选中其他大厅重试
+CityWar.EnterRoom.Fail3:密码错误，无法加入房间
+CityWar.EnterRoom.Fail4:房间ID错误，请核对后重试
+CityWar.EnterRoom.Fail5:房间ID错误，请核对后重试
+CityWar.EnterRoom.Fail6:ID错误，请核对后重试
+CityWar.EnterRoom.Fail7:金币不足，无法进入房间
+CityWar.EnterRoom.Fail8:密码错误，无法加入房间
+CityWar.EnterRoom.Fail9:房间已满，请选中其他房间游戏
+CityWar.EnterRoom.Fail10:房间已经锁定，无法进入
+CityWar.EnterRoom.Fail11:房卡不足，无法创建房间
+
+
+
+
+CityWar.UseItem.Failed:使用失敗！
+CityWar.UseItem.Success:使用成功！
+CityWar.UseItem.IsUseResult:當前還有酒未使用完，用完再來開下壹瓶吧.
+
+
+
+
+CityWar.Letter.PushMsg:玩家(%s)給妳發送了壹條訊息，趕快查看吧！
+CityWar.Trumpet.Drunk:恭喜(%s)获得酒奴(%s)！

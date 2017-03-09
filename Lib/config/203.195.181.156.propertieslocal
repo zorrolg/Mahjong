@@ -1,0 +1,53 @@
+drivers=com.mysql.jdbc.Driver
+
+# 数据库连接池配置
+
+# 每300秒检查所有连接池中的空闲连接 
+idleConnectionTestPeriod=300
+
+# 设置一个未使用的连接的存活时间
+IdleMaxAgeInMinutes=300
+
+# 设置分区的个数
+partitionCount=4
+
+# 每个分区最大连接数
+maxConnectionsPerPartition=10
+
+# 每个分区最大连接数
+minConnectionsPerPartition=1
+
+# 连接的增长数量
+AcquireIncrement=5
+
+# 释放线程数
+releaseHelperThreads=4
+
+# 是否开启关闭监视 
+CloseConnectionWatch=false
+
+# 超时未关闭监控，60秒
+CloseConnectionWatchTimeout=60000
+
+# 连接超时，60秒
+ConnectionTimeout=60000
+
+# 是否进行数据类型的验证，debug时开启(1)，正式环境关闭(0)
+DataTypeCheck=1
+
+# 是否开启DBWatch
+DBWatch=0
+
+# 是否进行事务安全检查
+TransactionCheck=0
+
+# local db_dice
+#db_tank.url=GB2a0RQ5B6e16YNs9dFErkbflDOUbt1iphe/Zperuifp4WRrkb7rbN+eeXXsuKDzDnRhM4DFUzSXJeWhnmQdnoPG6AWYFTL7hKORYxomWkNaX0cYn1w1SlV3yPlGcMuWDsNG+GOMUQ2xyKzXqpPtG1/6CpxNQSTLFHODJP+NpAc=
+#db_logs.url=bFTVG9AnfHfFtPPgkbBOodAXsiNZCmA0e1ErNqojKPsZNdN0uqV2zRrIWd2vTUVEe55hQVPiNnHijVZuLNn6u2lpn3i4R/UUf6pxwcWlyU2Aam8WiaZY2XsC2NY/sYb1VufApcB+uP+X9x0y4TufYQAYYAtX0ObdXVQVaa0g0Fw=
+
+# 208 db_dice
+db_tank.url=kLtnyZ7P20bjV4oYcCAbebG248IQ8to78fO7ZnZ55YLVdyIx9/MIiuYAuXXlooSZeK3iYiaut/lWr1MVKrwfhK6WDhOgf6+3wdK3ihPTDjLRImziWS6VsXCCLmMqjriHMHOpVYkcvPjo5F8OTBH8ag8lF2uaa8HgUIul3jPU7CM=
+db_logs.url=S6rEXb9lrCjfg4dIL7Eq9BiI6Wq+JduI2rM5iu6oAk0H8n7MLbyZJRh+pMuPSuMz9oUVC0/8b0Pw8UAzCI4RaYZzFxkR88ns8tR8PrmolMYzJYfq6ubAGT995oQ1JZ31JC02ng4mdvCuO2ZE+chklx3neKzGPGQzTxgLvQ6ig8o=
+
+
+

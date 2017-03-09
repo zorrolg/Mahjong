@@ -1,0 +1,1 @@
+java -cp lib/*;* com.road.robot.CreateNpcPlayers config/RobotConfig.properties
