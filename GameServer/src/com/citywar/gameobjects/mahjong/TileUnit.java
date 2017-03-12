@@ -1,6 +1,5 @@
 package com.citywar.gameobjects.mahjong;
 
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -25,11 +24,11 @@ public class TileUnit {
 	}
 
 	public static TileUnit self(TileUnitType type, Collection<Tile> tiles) {
-		return new TileUnit(type, tiles, SELF, null);
+		return new TileUnit(type, tiles, TileUnitSource.SELF, null);
 	}
 
 	public static TileUnit got(TileUnitType type, Collection<Tile> tiles, Tile gotTile) {
-		return new TileUnit(type, tiles, GOT, gotTile);
+		return new TileUnit(type, tiles, TileUnitSource.GOT, gotTile);
 	}
 
 	public TileUnit(TileUnitType type, Collection<Tile> tiles, TileUnitSource source, Tile gotTile) {
@@ -49,7 +48,7 @@ public class TileUnit {
 
 	public List<TileType> getTileTypes() {
 		if (tileTypes == null)
-			tileTypes = tiles.stream().map(Tile::getTileIndex).sorted().collect(Collectors.toList());
+			tileTypes = tiles.stream().map(Tile::type).sorted().collect(Collectors.toList());
 		return tileTypes;
 	}
 
