@@ -7,28 +7,45 @@ import com.citywar.gameobjects.mahjong.TileRank.ZiRank;
 
 public enum TileType {
 
-	WAN(0, 0x04, 0x27) {
+	WAN(0x00, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
 		}
+		
+		@Override
+		public String toString() {
+			return W;
+		}
 	},
 
-	TONG(1, 0x28, 0x4C) {
+//	TONG(1, 0x28, 0x4C) {
+	TONG(0x40, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
 		}
+		
+		@Override
+		public String toString() {
+			return T;
+		}
 	},
 
-	TIAO(2, 0x4D, 0x71) {
+//	TIAO(2, 0x4D, 0x71) {
+	TIAO(0x80, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
 		}
+		@Override
+		public String toString() {
+			return TO;
+		}
 	},
 
-	ZI_HUA(3, 0x72, 0x96) {
+//	ZI_HUA(0xC0, 0x72, 0x96) {
+	ZI_HUA(0xC0, 0x04, 0x27) {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Class<? extends TileRank> rank() {
@@ -40,6 +57,15 @@ public enum TileType {
 				return HuaRank.class;
 			}
 		}
+		
+		@Override
+		public String toString() {
+			if(this.rank()  == ZiRank.class) {
+				return Z;
+			} else {
+				return H;
+			}
+		}
 	};
 
 	private byte code;
@@ -48,11 +74,13 @@ public enum TileType {
 
 	private byte max;
 
-	private TileType(int min, int max) {
-		this.min = (byte) min;
-		this.max = (byte) max;
-	}
-
+	
+	private static final String W = "萬";
+	private static final String T = "筒";
+	private static final String TO = "條";
+	private static final String Z = "字";
+	private static final String H = "花";
+	
 	private TileType(int code, int min, int max) {
 		this.code = (byte) code;
 		this.min = (byte) min;
@@ -66,9 +94,11 @@ public enum TileType {
 			return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Class<? extends TileRank> rank() {
-		return null;
+		throw new RuntimeException("method must be override!");
 	}
+	
 	public byte getCode() {
 		return code;
 	}

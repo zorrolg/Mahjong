@@ -1,6 +1,6 @@
 package com.citywar.gameobjects.mahjong;
 
-import static com.github.blovemaple.mj.object.StandardTileUnitType.*;
+import static com.citywar.gameobjects.mahjong.strategy.general.DefaultTileUnitType.*;
 
 import java.util.Set;
 

@@ -3,6 +3,7 @@ package com.citywar.gameobjects.mahjong;
 import java.util.List;
 
 import com.citywar.gameobjects.TileType;
+import com.citywar.gameobjects.mahjong.TileRank.NumberRank;
 import com.google.common.collect.Lists;
 
 public class Tile {
@@ -26,7 +27,7 @@ public class Tile {
 	//	public static final Tile W3_1 = new Tile(0x0C);
 	//	public static final Tile W3_2 = new Tile(0x0D);
 	//	public static final Tile W3_3 = new Tile(0x0E);
-	//	public static final Tile W3_4 = new Tile(0x0F);
+//		public static final Tile W3_4 = new Tile((byte)0x0F, TileType.WAN);
 	//
 	//	public static final Tile W4_1 = new Tile(0x10);
 	//	public static final Tile W4_2 = new Tile(0x11);
@@ -64,13 +65,15 @@ public class Tile {
 			byte min = type.getMin();
 			byte max = type.getMax();
 			for (byte code = min; code <= max; code++) {
+				if (type.rank() == NumberRank.class) {
+				}
 				all.add(new Tile(code, type));
 			}
 		}
 	}
 
 	public Tile(byte code, TileType type) {
-		this.code = code;
+		this.code = (byte)(type.getCode() ^ code);
 		this.type = type;
 	}
 
@@ -78,12 +81,12 @@ public class Tile {
 		this.code = code;
 	}
 	/**
-	 * 花色
+	 * 花色下標
 	 * <ul>
-	 * 	<li>万</li>
-	 * 	<li>条</li>
-	 * 	<li>筒</li>
-	 * 	<li>字</li>
+	 * 	<li>万0</li>
+	 * 	<li>条1</li>
+	 * 	<li>筒2</li>
+	 * 	<li>字3</li>
 	 * </ul>
 	 * @return
 	 */
@@ -95,25 +98,19 @@ public class Tile {
 	/**
 	 * 花色的子类型
 	 * 万 （1-9万）
-	 * 。。。
+	 * 筒 （1-9万）
+	 * 条（1-9万）
 	 * @return
 	 */
 	public byte getTileSubType() {
-		byte type = (byte) ((this.code >> 2) & 0x0F);
+		byte type = (byte) ((this.code & 0x3F) >> 2);
 		return type;
 	}
 
-	/**
-	 * 取中间三位
-	 * @return
-	 */
-	public byte getTileType() {
-		byte type = (byte) ((this.code >> 2) & 0x3F);
-		return type;
-	}
 
 	/**
-	 * @return 0，1，2，3  牌的数量下标
+	 *  牌的数量下标
+	 * @return 0，1，2，3 
 	 */
 	public byte getTileIndex() {
 		byte type = (byte) (this.code & 0x03);
@@ -122,6 +119,7 @@ public class Tile {
 
 	/**
 	 * 该牌是此花色第几张牌
+	 * @return 1,2,3,4
 	 */
 	public byte getTileNum() {
 		return (byte)(getTileIndex() + 1);
@@ -131,10 +129,16 @@ public class Tile {
 	public TileType type() {
 		return this.type;
 	}
+	
+	@Override
+	public String toString() {
+		return Integer.toHexString(this.code) + this.type.toString();
+	}
+	
 	public static void main(String[] args) {
-		//		System.out.println(Tile.W3_4.code);
+//				System.out.println(Tile.W3_4.code);
 		//		System.out.println(Tile.W3_4.getTileTypeIndex());
-		//		System.out.println(Tile.W3_4.getTileSubType());
+//				System.out.println(Tile.W3_4.getTileSubType());
 		//		System.out.println(Tile.W3_4.getTileType());
 		//		System.out.println(Tile.W3_4.getTileNum());
 		//		System.out.println(Tile.W3_4.getTileType());
