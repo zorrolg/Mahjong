@@ -60,26 +60,26 @@ public enum DefaultTileUnitType implements TileUnitType {
 			if (tiles.stream().map(tile -> tile.type()).distinct().count() > 1)
 				return false;
 
-			OptionalDouble option = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).average();
-			if (option.isPresent()) {
-				Tile t = (Tile) tiles.stream().toArray()[1];
-				if (option.getAsDouble() != t.getTileSubType()) {
-					return false;
-				}
-			} else {
-				return false;
-			}
-			// rank不连续的，非法
-//			int[] numbers = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).sorted().toArray();
-//			Optional<Tile> findFirst = tiles.stream().findFirst();
-//			
-//			int crtNumber = 0;
-//			for (int number : numbers) {
-//				if (crtNumber == 0 || number == crtNumber + 1)
-//					crtNumber = number;
-//				else
+//			OptionalDouble option = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).average();
+//			if (option.isPresent()) {
+//				Tile t = (Tile) tiles.stream().toArray()[1];
+//				if (option.getAsDouble() != t.getTileSubType()) {
 //					return false;
+//				}
+//			} else {
+//				return false;
 //			}
+			// rank不连续的，非法
+			int[] numbers = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).sorted().toArray();
+			Optional<Tile> findFirst = tiles.stream().findFirst();
+			
+			int crtNumber = 0;
+			for (int number : numbers) {
+				if (crtNumber == 0 || number == crtNumber + 1)
+					crtNumber = number;
+				else
+					return false;
+			}
 
 			return true;
 		}

@@ -10,7 +10,6 @@ import com.citywar.gameobjects.TileType;
 
 /**
  * 牌的单元，即判断和牌时对牌的分组，如顺子、刻子、杠子、将牌等。
- * 
  */
 public class TileUnit {
 	private final TileUnitType type;
@@ -47,8 +46,9 @@ public class TileUnit {
 	}
 
 	public List<TileType> getTileTypes() {
-		if (tileTypes == null)
+		if (tileTypes == null) {
 			tileTypes = tiles.stream().map(Tile::type).sorted().collect(Collectors.toList());
+		}
 		return tileTypes;
 	}
 

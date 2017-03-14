@@ -49,7 +49,7 @@ public enum TileType {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Class<? extends TileRank> rank() {
-			byte calc = (byte) (this.getCode() & 0x63);
+			byte calc = (byte) (this.getCode() & 0x60);
 			calc = (byte) (calc >> 2);
 			if (calc > 0x08) {
 				return ZiRank.class;

@@ -1,0 +1,133 @@
+ERROR:2017-03-06 12:23:17,005-com.citywar.dice.db.DBPool-1 [main]
+[ DBPool : DBPool ] 
+java.sql.SQLException: Unable to open a test connection to the given database. JDBC url = jdbc:mysql://127.0.0.1:3306/db_citywar?characterEncoding=utf-8, username = root. Terminating connection pool. Original Exception: ------
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1122)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2260)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:787)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:357)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:256)
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:305)
+	at com.citywar.dice.db.DBPool.<init>(DBPool.java:108)
+	at com.citywar.dice.db.DBPoolManager.createPools(DBPoolManager.java:175)
+	at com.citywar.dice.db.DBPoolManager.init(DBPoolManager.java:134)
+	at com.citywar.dice.db.DBPoolManager.<init>(DBPoolManager.java:40)
+	at com.citywar.dice.db.DBPoolManager.getInstance(DBPoolManager.java:62)
+	at com.citywar.dice.db.DBManager.initConfig(DBManager.java:51)
+	at com.citywar.GameServer.start(GameServer.java:185)
+	at com.citywar.GameServer.main(GameServer.java:153)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1122)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:344)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2181)
+	... 21 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:293)
+	... 22 more
+------
+
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:312)
+	at com.citywar.dice.db.DBPool.<init>(DBPool.java:108)
+	at com.citywar.dice.db.DBPoolManager.createPools(DBPoolManager.java:175)
+	at com.citywar.dice.db.DBPoolManager.init(DBPoolManager.java:134)
+	at com.citywar.dice.db.DBPoolManager.<init>(DBPoolManager.java:40)
+	at com.citywar.dice.db.DBPoolManager.getInstance(DBPoolManager.java:62)
+	at com.citywar.dice.db.DBManager.initConfig(DBManager.java:51)
+	at com.citywar.GameServer.start(GameServer.java:185)
+	at com.citywar.GameServer.main(GameServer.java:153)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1122)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2260)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:787)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:357)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.jolbox.bonecp.BoneCP.obtainRawInternalConnection(BoneCP.java:256)
+	at com.jolbox.bonecp.BoneCP.<init>(BoneCP.java:305)
+	... 8 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1122)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:344)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2181)
+	... 21 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:293)
+	... 22 more
+ERROR:2017-03-06 12:23:17,323-com.citywar.dice.db.DBManager-319[main]
+[DataBase] 提示消息:没有可用的数据库连接池; 错误描述:null 
+ERROR:2017-03-06 12:23:17,337-com.citywar.dice.db.DBManager-333[main]
+[DataBase] 提示消息:没有可用的数据库连接池; 错误描述:null 
+ERROR:2017-03-06 12:23:17,338-com.citywar.dice.db.DBManager-334[main]
+[DataBase] 提示消息:没有可用的数据库连接池; 错误描述:null 
+ERROR:2017-03-06 12:23:17,338-com.citywar.manager.ItemMgr-334[main]
+ItemMgr reload exception:java.lang.NullPointerException 
+ERROR:2017-03-06 12:23:17,338-com.citywar.BaseServer-334[main]
+initialize CardMgr failed 
