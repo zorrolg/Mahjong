@@ -3,21 +3,19 @@ package com.citywar.gameobjects.mahjong;
 import java.util.List;
 
 import com.citywar.gameobjects.TileType;
-import com.citywar.gameobjects.mahjong.TileRank.NumberRank;
-import com.citywar.gameobjects.mahjong.TileRank.ZiRank;
 import com.citywar.gameobjects.mahjong.TileRank.HuaRank;
 import com.google.common.collect.Lists;
 
 public class Tile {
 
-	public byte code ;
+	private byte code ;
 
 	public TileType type;
 
 	public static List<Tile> all;
 
 	static {
-		all = Lists.newArrayListWithCapacity(110);
+		all = Lists.newArrayListWithCapacity(144);
 		for (TileType type : TileType.values()) {
 			byte min = type.getMin();
 			byte max = type.getMax();
@@ -32,10 +30,6 @@ public class Tile {
 		}
 	}
 	
-	public Tile(byte code, TileType type, int number) {
-		this.code = (byte)(type.getCode() ^ code ^ (byte)number);
-		this.type = type;
-	}
 
 	public Tile(byte code, TileType type) {
 		this.code = (byte)(type.getCode() ^ code);
@@ -45,6 +39,12 @@ public class Tile {
 	public Tile(byte code) {
 		this.code = code;
 	}
+	
+	
+	public int getCode() {
+		return Byte.toUnsignedInt(code);
+	}
+
 	/**
 	 * 花色下標
 	 * <ul>
@@ -83,6 +83,10 @@ public class Tile {
 		return type;
 	}
 
+	
+    public static byte toUnsignedByte(byte x) {
+        return (byte)(x & 0xff);
+    }
 	/**
 	 * 该牌是此花色第几张牌
 	 * @return 1,2,3,4
@@ -98,11 +102,20 @@ public class Tile {
 	
 	@Override
 	public String toString() {
-		return Integer.toBinaryString(Byte.toUnsignedInt(this.code));
+		return String.format("0x%s", Integer.toBinaryString(Tile.toUnsignedByte(this.code)));
 //		return Integer.toHexString(this.getTileSubType()) + this.type.toString() + this.getTileNum();
 	}
 	
+	public Tile(byte code, TileType type, int number) {
+		this.code = (byte)(type.getCode() ^ code ^ (byte)number);
+		this.type = type;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(all);
+//		System.out.println(all);
+		
+		Tile tile = new Tile((byte)0x3C, TileType.ZI_HUA, 1);
+		
+		System.out.println(tile);
 	}
 }

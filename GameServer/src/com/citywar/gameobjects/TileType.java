@@ -45,7 +45,7 @@ public enum TileType {
 	},
 
 //	ZI_HUA(0xC0, 0x72, 0x96) {
-	ZI_HUA(0xC0, 0x04, 0x27) {
+	ZI_HUA(0xC0, 0x04, 0x3C) {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Class<? extends TileRank> rank() {
