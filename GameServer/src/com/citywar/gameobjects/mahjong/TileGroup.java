@@ -10,7 +10,6 @@ import javax.management.relation.Relation;
 /**
  * 牌组，即玩家的牌中除活牌外的若干个组，通常是吃、碰、杠等动作形成。
  * 
- * @author blovemaple <blovemaple2010(at)gmail.com>
  */
 public class TileGroup implements Serializable {
 	private static final long serialVersionUID = 1L;

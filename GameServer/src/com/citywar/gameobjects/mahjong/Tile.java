@@ -85,7 +85,7 @@ public class Tile {
 
 	
     public static byte toUnsignedByte(byte x) {
-        return (byte)(x & 0xff);
+        return (byte)(x & 0xFF);
     }
 	/**
 	 * 该牌是此花色第几张牌

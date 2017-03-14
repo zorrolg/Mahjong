@@ -4,7 +4,6 @@ package com.citywar.gameobjects.mahjong;
  * 牌的花色下面的小种类。如万牌中的“一”、“二”，风牌中的“东”、“南”等。<br>
  * 实现类必须有values()方法返回相应的种类数组（枚举类就可以）。因为TileSuit会用values()方法获取对应的种类。
  * 
- * @author blovemaple <blovemaple2010(at)gmail.com>
  */
 public interface TileRank<T extends TileRank<T>> extends Comparable<T> {
 	/**
