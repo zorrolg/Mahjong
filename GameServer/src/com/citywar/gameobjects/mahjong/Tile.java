@@ -3,7 +3,6 @@ package com.citywar.gameobjects.mahjong;
 import java.util.List;
 
 import com.citywar.gameobjects.TileType;
-import com.citywar.gameobjects.mahjong.TileRank.HuaRank;
 import com.google.common.collect.Lists;
 
 public class Tile {
@@ -19,12 +18,14 @@ public class Tile {
 		for (TileType type : TileType.values()) {
 			byte min = type.getMin();
 			byte max = type.getMax();
-			for (byte code = min; code <= max; code++) {
-				int index = all.size() / 4 + 1;
-				if (type.rank() == HuaRank.class) {
-					index = 1;
+			for (byte code = min; code <= max; ) {
+				Tile tile = new Tile(code, type);
+				//如果是字花段，0x1F代表已经到花牌
+				if (type == TileType.ZI_HUA && code > 0x1F) {
+					code = (byte)(code + 0x4);
+				} else {
+					code++;
 				}
-				Tile tile = new Tile(code, type, index);
 				all.add(tile);
 			}
 		}
@@ -100,22 +101,30 @@ public class Tile {
 		return this.type;
 	}
 	
-	@Override
-	public String toString() {
-		return String.format("0x%s", Integer.toBinaryString(Tile.toUnsignedByte(this.code)));
-//		return Integer.toHexString(this.getTileSubType()) + this.type.toString() + this.getTileNum();
+	public String toBinaryString() {
+		return Integer.toBinaryString(this.getCode());
 	}
 	
+	@Override
+	public String toString() {
+//		return Integer.toUnsignedString(Tile.toUnsignedByte(this.code), 2);
+//		return String.format("0x%s", Integer.toBinaryString(Tile.toUnsignedByte(this.code)));
+		return Integer.toString(this.getTileSubType(), 10) + this.type.toString() + this.getTileNum() + " " + toBinaryString();
+	}
+	
+	@Deprecated
 	public Tile(byte code, TileType type, int number) {
 		this.code = (byte)(type.getCode() ^ code ^ (byte)number);
 		this.type = type;
+		this.type.setCode(this.code);
 	}
 	
 	public static void main(String[] args) {
-//		System.out.println(all);
+		System.out.println(all);
 		
-		Tile tile = new Tile((byte)0x3C, TileType.ZI_HUA, 1);
+		Tile tile = new Tile((byte)0x27, TileType.TIAO);
 		
 		System.out.println(tile);
+		System.exit(0);
 	}
 }

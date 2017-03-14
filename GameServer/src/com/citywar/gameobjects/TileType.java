@@ -49,18 +49,18 @@ public enum TileType {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Class<? extends TileRank> rank() {
-			byte calc = (byte) (this.getCode() & 0x60);
-			calc = (byte) (calc >> 2);
-			if (calc > 0x08) {
-				return ZiRank.class;
-			} else {
+			byte type = (byte) ((this.getCode() >> 2));
+			type = (byte) (type & 0x0F);
+			if (type >= 0x08) {
 				return HuaRank.class;
+			} else {
+				return ZiRank.class;
 			}
 		}
 		
 		@Override
 		public String toString() {
-			if(this.rank()  == ZiRank.class) {
+			if(this.rank() == ZiRank.class) {
 				return Z;
 			} else {
 				return H;
@@ -87,8 +87,8 @@ public enum TileType {
 		this.max = (byte) max;
 	}
 
-	public boolean isInRange(byte code) {
-		if (code >= min && code < max) {
+	public boolean isInRange(byte type) {
+		if (type >= min && type < max) {
 			return true;
 		} else
 			return false;
@@ -103,6 +103,9 @@ public enum TileType {
 		return code;
 	}
 
+	public void setCode(byte code) {
+		this.code = code;
+	}
 	public byte getMin() {
 		return min;
 	}
