@@ -58,20 +58,10 @@ public enum DefaultTileUnitType implements TileUnitType {
 			// 花色有多种的，非法
 			if (tiles.stream().map(tile -> tile.type()).distinct().count() > 1)
 				return false;
-
-//			OptionalDouble option = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).average();
-//			if (option.isPresent()) {
-//				Tile t = (Tile) tiles.stream().toArray()[1];
-//				if (option.getAsDouble() != t.getTileSubType()) {
-//					return false;
-//				}
-//			} else {
-//				return false;
-//			}
 			// rank不连续的，非法
 			int[] numbers = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).sorted().toArray();
 			Optional<Tile> findFirst = tiles.stream().findFirst();
-			
+
 			int crtNumber = 0;
 			for (int number : numbers) {
 				if (crtNumber == 0 || number == crtNumber + 1)
@@ -143,11 +133,11 @@ public enum DefaultTileUnitType implements TileUnitType {
 		@Override
 		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
 			// rank类型非NumberRank的，非法
-			if (types.iterator().next().suit().getRankClass() != NumberRank.class)
+			if (types.iterator().next().type().rank() != NumberRank.class)
 				return false;
 
 			// 花色有多种的，非法
-			if (types.stream().map(tile -> tile.suit()).distinct().count() > 1)
+			if (types.stream().map(tile -> tile.type()).distinct().count() > 1)
 				return false;
 
 			// rank不连续的，非法
@@ -273,6 +263,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 
 	/**
 	 * 查找集合所能组成的牌型缺失的牌
+	 * 
 	 * @param tiles
 	 * @return
 	 */

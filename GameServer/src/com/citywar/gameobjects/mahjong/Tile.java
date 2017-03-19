@@ -74,6 +74,10 @@ public class Tile {
 		return new Byte(type).intValue();
 	}
 
+	
+	public int getTileSubTypeOffset(int offset) {
+		return getTileSubType() + offset;
+	}
 
 	/**
 	 *  牌的数量下标
