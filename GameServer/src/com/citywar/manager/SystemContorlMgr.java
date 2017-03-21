@@ -5,7 +5,7 @@ package com.citywar.manager;
 
 import java.util.List;
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.hall.BaseHall;
 import com.citywar.room.BaseRoom;
 import com.citywar.socket.Packet;

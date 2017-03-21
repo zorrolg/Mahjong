@@ -14,7 +14,7 @@ import com.citywar.bll.HallTypeBussiness;
 import com.citywar.bll.PengConfigBussiness;
 import com.citywar.dice.entity.HallTypeInfo;
 import com.citywar.dice.entity.PengConfigInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.queue.SelfDrivenRunnableQueue;

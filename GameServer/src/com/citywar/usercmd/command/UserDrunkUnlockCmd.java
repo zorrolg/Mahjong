@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserRefWorkInfo;
 import com.citywar.dice.entity.UserReferenceInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ReferenceMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

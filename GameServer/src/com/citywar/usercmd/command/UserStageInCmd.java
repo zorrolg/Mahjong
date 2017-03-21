@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import com.citywar.dice.entity.StageInfo;
 import com.citywar.dice.entity.StageRoundInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;
 import com.citywar.manager.StageMgr;

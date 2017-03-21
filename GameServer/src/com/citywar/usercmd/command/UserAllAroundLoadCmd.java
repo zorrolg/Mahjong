@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.gameutil.PlayerAroudUser;
 import com.citywar.gameutil.PlayerInfoAndAround;

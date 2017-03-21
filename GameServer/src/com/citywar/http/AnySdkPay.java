@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 import com.citywar.bll.OrderBusiness;
 import com.citywar.dice.entity.ShopGoodInfo;
 import com.citywar.dice.entity.UserOrderInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ShopMgr;
 import com.citywar.manager.WorldMgr;
 import com.citywar.type.ChannelType;

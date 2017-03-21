@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 
 import com.citywar.bll.UserRegisterBussiness;
 import com.citywar.dice.entity.UserRegister;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;
 import com.citywar.type.UserCmdType;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.citywar.dice.entity.AroundUser;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.PlayerInfoAndAround;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.manager.UserTopMgr;

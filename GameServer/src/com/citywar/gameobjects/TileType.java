@@ -7,7 +7,7 @@ import com.citywar.gameobjects.mahjong.TileRank.ZiRank;
 
 public enum TileType {
 
-	WAN(0x00, 0x04, 0x27) {
+	WAN(0x00, 9, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
@@ -20,7 +20,7 @@ public enum TileType {
 	},
 
 	// TONG(1, 0x28, 0x4C) {
-	TONG(0x40, 0x04, 0x27) {
+	TONG(0x40, 9, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
@@ -33,7 +33,7 @@ public enum TileType {
 	},
 
 	// TIAO(2, 0x4D, 0x71) {
-	TIAO(0x80, 0x04, 0x27) {
+	TIAO(0x80, 9, 0x04, 0x27) {
 		@Override
 		public Class<NumberRank> rank() {
 			return NumberRank.class;
@@ -46,7 +46,7 @@ public enum TileType {
 	},
 
 	// ZI_HUA(0xC0, 0x72, 0x96) {
-	ZI_HUA(0xC0, 0x04, 0x3C) {
+	ZI_HUA(0xC0, 15, 0x04, 0x3C) {
 		@Override
 		public Class<ZiRank> rank() {
 			return ZiRank.class;
@@ -64,6 +64,8 @@ public enum TileType {
 
 	private byte code;
 
+	private byte maxSubType;
+
 	private byte min;
 
 	private byte max;
@@ -74,8 +76,9 @@ public enum TileType {
 	private static final String Z = "字";
 	private static final String H = "花";
 
-	private TileType(int code, int min, int max) {
+	private TileType(int code, int subType, int min, int max) {
 		this.code = (byte) code;
+		this.maxSubType = (byte) subType;
 		this.min = (byte) min;
 		this.max = (byte) max;
 	}
@@ -96,6 +99,13 @@ public enum TileType {
 		return code;
 	}
 
+	public boolean isInRange(int subType) {
+		if (subType <= maxSubType && subType >= 1) {
+			return true;
+		} 
+		return false;
+	}
+	
 	public void setCode(byte code) {
 		this.code = code;
 	}
@@ -107,7 +117,6 @@ public enum TileType {
 	public byte getMax() {
 		return max;
 	}
-
 
 	public static void main(String[] args) {
 		for (TileType string : values()) {

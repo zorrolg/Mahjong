@@ -1,7 +1,7 @@
 package com.citywar.usercmd.command;
 
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.UserTopMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

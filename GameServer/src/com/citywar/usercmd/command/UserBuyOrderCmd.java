@@ -18,7 +18,7 @@ import org.json.JSONException;
 import com.citywar.bll.OrderBusiness;
 import com.citywar.dice.entity.ShopGoodInfo;
 import com.citywar.dice.entity.UserOrderInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ShopMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.TaskConditionType;

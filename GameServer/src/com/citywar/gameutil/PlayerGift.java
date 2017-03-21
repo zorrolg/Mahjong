@@ -9,7 +9,7 @@ import com.citywar.bll.UserGiftBussiness;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserGiftInfo;
 import com.citywar.dice.entity.UserGiftIntegrationInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.UserGiftMgr;
 
 /**

@@ -15,7 +15,7 @@ import com.citywar.bll.PlayerBussiness;
 import com.citywar.bll.TaskBussiness;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserTaskInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.KKMgr;
 import com.citywar.manager.LetterMgr;
 import com.citywar.manager.LevelMgr;

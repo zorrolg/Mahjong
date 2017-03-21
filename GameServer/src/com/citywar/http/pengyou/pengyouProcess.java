@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import com.citywar.bll.PlayerBussiness;
 import com.citywar.bll.ServerUserBussiness;
 import com.citywar.dice.entity.ServerUser;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.HallMgr;
 import com.citywar.manager.LevelMgr;
 import com.citywar.manager.RobotChatMgr;

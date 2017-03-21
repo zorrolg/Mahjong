@@ -7,7 +7,7 @@ import java.util.Map;
 import com.citywar.bll.UserGiftBussiness;
 import com.citywar.dice.entity.UserGiftInfo;
 import com.citywar.dice.entity.UserGiftIntegrationInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.PlayerGift;
 
 /**

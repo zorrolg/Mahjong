@@ -3,7 +3,7 @@ package com.citywar.usercmd.command;
 import java.util.Map;
 
 import com.citywar.dice.entity.StagePrizeInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.StageMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

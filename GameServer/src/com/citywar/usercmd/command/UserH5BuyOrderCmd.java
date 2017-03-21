@@ -10,7 +10,7 @@ import com.citywar.bll.OrderBusiness;
 import com.citywar.bll.PlayerBussiness;
 import com.citywar.dice.entity.ShopGoodInfo;
 import com.citywar.dice.entity.UserOrderInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.KKMgr;
 import com.citywar.manager.ShopMgr;
 import com.citywar.socket.Packet;

@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import com.citywar.bll.UserDayActivityBussiness;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserDayActivityInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ItemMgr;
 import com.citywar.type.PropType;
 

@@ -5,7 +5,7 @@ package com.citywar.room.action;
 
 import java.sql.Timestamp;
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.room.BaseRoom;
 
 /**

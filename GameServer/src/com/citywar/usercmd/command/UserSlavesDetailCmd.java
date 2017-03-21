@@ -1,7 +1,7 @@
 package com.citywar.usercmd.command;
 
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.GamePlayerUtil;
 import com.citywar.manager.LevelMgr;
 import com.citywar.manager.ReferenceMgr;

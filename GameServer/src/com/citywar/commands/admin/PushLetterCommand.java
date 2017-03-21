@@ -10,7 +10,7 @@ import com.citywar.commands.AbstractCommandHandle;
 import com.citywar.commands.ConsoleCmdAnnotation;
 import com.citywar.commands.PrivLevel;
 import com.citywar.dice.entity.UserLetter;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ManagerClient;
 import com.citywar.manager.WorldMgr;
 import com.citywar.util.CommonUtil;

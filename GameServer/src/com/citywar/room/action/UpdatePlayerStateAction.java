@@ -3,7 +3,7 @@ package com.citywar.room.action;
 
 
 import com.citywar.game.BaseGame;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.room.BaseRoom;
 import com.citywar.type.GameState;
 

@@ -8,7 +8,7 @@ import javax.websocket.Session;
 import org.apache.log4j.Logger;
 
 import com.citywar.GameServer;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.socket.WebCommand;
 

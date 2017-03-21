@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;
 import com.citywar.manager.RobRoomMgr;

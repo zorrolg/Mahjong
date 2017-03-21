@@ -1,7 +1,7 @@
 package com.citywar.game.action;
 
 import com.citywar.game.BaseGame;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 
 /**
  * when the game over,adds action to prepare new game

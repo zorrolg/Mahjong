@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 
 import com.citywar.dice.entity.AroundUser;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.type.DistanceType;
 import com.citywar.util.DistanceUtil;

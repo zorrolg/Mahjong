@@ -15,7 +15,6 @@ import com.citywar.event.BaseMultiEventSource;
 import com.citywar.game.action.IAction;
 import com.citywar.game.action.StartPrepareAction;
 import com.citywar.game.action.UserShakeAction;
-import com.citywar.gameobjects.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.HallMgr;
 import com.citywar.room.BaseRoom;

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserReward;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.AwardMgr;
 import com.citywar.util.TimeUtil;
 

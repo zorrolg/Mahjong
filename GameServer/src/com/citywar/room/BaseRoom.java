@@ -24,7 +24,7 @@ import com.citywar.dice.entity.PengGame;
 import com.citywar.dice.entity.PengGameDetail;
 import com.citywar.event.IEventListener;
 import com.citywar.game.BaseGame;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.gameutil.PengGameScore;
 import com.citywar.hall.BaseHall;

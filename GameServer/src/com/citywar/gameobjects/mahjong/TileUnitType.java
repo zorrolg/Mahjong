@@ -22,6 +22,6 @@ public interface TileUnitType {
 	/**
 	 * 判断指定牌型集合是否是合法的单元。
 	 */
-	boolean isLegalTileTypes(Collection<TileType> types);
+//	boolean isLegalTileTypes(Collection<TileType> types);
 
 }

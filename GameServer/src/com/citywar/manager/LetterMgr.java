@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.citywar.bll.UserLetterBussiness;
 import com.citywar.dice.entity.UserLetter;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

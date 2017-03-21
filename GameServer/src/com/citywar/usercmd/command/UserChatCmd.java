@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.RobotChatMgr;
 import com.citywar.manager.WorldMgr;
 import com.citywar.room.BaseRoom;

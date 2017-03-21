@@ -2,7 +2,7 @@ package com.citywar.gameutil;
 
 import com.citywar.bll.UserPropertyBussiness;
 import com.citywar.dice.entity.UserPropertyInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.AntiAddictionMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

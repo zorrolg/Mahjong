@@ -13,7 +13,7 @@ import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserAwardInfo;
 import com.citywar.dice.entity.UserItemInfo;
 import com.citywar.dice.entity.UserReward;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.GamePlayerUtil;
 import com.citywar.util.Config;
 import com.citywar.util.TimeUtil;

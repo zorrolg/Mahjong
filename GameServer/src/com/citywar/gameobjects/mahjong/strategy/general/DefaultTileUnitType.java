@@ -36,15 +36,15 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
-			TileType type = tiles instanceof List ? ((List<Tile>) tiles).get(0).type() : tiles.iterator().next().type();
+		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 			return singletonList(singletonList(type));
 		}
 
-		@Override
-		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
-			return types.stream().distinct().count() == 1;
-		}
+//		@Override
+//		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
+//			return types.stream().distinct().count() == 1;
+//		}
 	},
 	/**
 	 * 顺子
@@ -74,21 +74,21 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() == 1) {
 				Tile tile = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 				// rank类型非NumberRank的，非法
 				if (tile.type().rank() != NumberRank.class)
 					return emptyList();
 
-				List<List<TileType>> result = new ArrayList<>();
+				List<List<Tile>> result = new ArrayList<>();
 				int number = tile.getTileSubType();
 				if (number >= 3)
-					result.add(Arrays.asList(of(suit, ofNumber(number - 2)), of(suit, ofNumber(number - 1))));
+					result.add(Arrays.asList(tile.getTileOffset(-2), tile.getTileOffset(-1)));
 				if (number >= 2 && number <= 8)
-					result.add(Arrays.asList(of(suit, ofNumber(number - 1)), of(suit, ofNumber(number + 1))));
+					result.add(Arrays.asList(tile.getTileOffset(-1), tile.getTileOffset(1)));
 				if (number <= 7)
-					result.add(Arrays.asList(of(suit, ofNumber(number + 1)), of(suit, ofNumber(number + 2))));
+					result.add(Arrays.asList(tile.getTileOffset(1), tile.getTileOffset(2)));
 				return result;
 
 			} else if (tiles.size() == 2) {
@@ -100,11 +100,12 @@ public enum DefaultTileUnitType implements TileUnitType {
 				if (tiles.stream().map(tile -> tile.type()).distinct().count() > 1)
 					return emptyList();
 
-				List<List<TileType>> result = new ArrayList<>();
-				TileSuit suit = tiles.iterator().next().type().suit();
+				List<List<Tile>> result = new ArrayList<>();
 				Iterator<Tile> tileItr = tiles.iterator();
-				int number1 = ((NumberRank) tileItr.next().type().rank()).number();
-				int number2 = ((NumberRank) tileItr.next().type().rank()).number();
+				Tile tile1 = tileItr.next();
+				Tile tile2 = tileItr.next();
+				int number1 = tile1.getTileSubType();
+				int number2 = tile2.getTileSubType();
 				int distance = Math.abs(number2 - number1);
 				// number差距不是1或2的，非法
 				if (distance < 1 || distance > 2)
@@ -117,12 +118,13 @@ public enum DefaultTileUnitType implements TileUnitType {
 				switch (distance) {
 				case 1:
 					if (number1 >= 2)
-						result.add(singletonList(of(suit, ofNumber(number1 - 1))));
+						result.add(singletonList(tile1.getTileOffset(-1)));
 					if (number2 <= 8)
-						result.add(singletonList(of(suit, ofNumber(number2 + 1))));
+						result.add(singletonList(tile2.getTileOffset(1)));
 					break;
+					//夹张
 				case 2:
-					result.add(singletonList(of(suit, ofNumber(number1 + 1))));
+					result.add(singletonList(tile1.getTileOffset(1)));
 					break;
 				}
 				return result;
@@ -130,28 +132,28 @@ public enum DefaultTileUnitType implements TileUnitType {
 			throw new IllegalArgumentException(tiles.toString());
 		}
 
-		@Override
-		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
-			// rank类型非NumberRank的，非法
-			if (types.iterator().next().type().rank() != NumberRank.class)
-				return false;
-
-			// 花色有多种的，非法
-			if (types.stream().map(tile -> tile.type()).distinct().count() > 1)
-				return false;
-
-			// rank不连续的，非法
-			int[] numbers = types.stream().mapToInt(type -> ((NumberRank) type.rank()).number()).sorted().toArray();
-			int crtNumber = 0;
-			for (int number : numbers) {
-				if (crtNumber == 0 || number == crtNumber + 1)
-					crtNumber = number;
-				else
-					return false;
-			}
-
-			return true;
-		}
+//		@Override
+//		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
+//			// rank类型非NumberRank的，非法
+//			if (types.iterator().next().rank() != NumberRank.class)
+//				return false;
+//
+//			// 花色有多种的，非法
+//			if (types.stream().distinct().count() > 1)
+//				return false;
+//
+//			// rank不连续的，非法
+//			int[] numbers = types.stream().mapToInt(type -> ((NumberRank) type.rank()).number()).sorted().toArray();
+//			int crtNumber = 0;
+//			for (int number : numbers) {
+//				if (crtNumber == 0 || number == crtNumber + 1)
+//					crtNumber = number;
+//				else
+//					return false;
+//			}
+//
+//			return true;
+//		}
 	},
 	/**
 	 * 刻子
@@ -163,20 +165,20 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() > 1 && tiles.stream().map(Tile::type).distinct().count() > 1)
 				return emptyList();
 
-			TileType type = tiles instanceof List ? ((List<Tile>) tiles).get(0).type() : tiles.iterator().next().type();
+			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 			if (tiles.size() == size() - 1)
 				return singletonList(singletonList(type));
 			return singletonList(nCopies(size() - tiles.size(), type));
 		}
 
-		@Override
-		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
-			return types.stream().distinct().count() == 1;
-		}
+//		@Override
+//		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
+//			return types.stream().distinct().count() == 1;
+//		}
 	},
 	/**
 	 * 杠子
@@ -188,20 +190,20 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() > 1 && tiles.stream().map(Tile::type).distinct().count() > 1)
 				return emptyList();
 
-			TileType type = tiles instanceof List ? ((List<Tile>) tiles).get(0).type() : tiles.iterator().next().type();
+			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 			if (tiles.size() == size() - 1)
 				return singletonList(singletonList(type));
 			return singletonList(nCopies(size() - tiles.size(), type));
 		}
 
-		@Override
-		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
-			return types.stream().distinct().count() == 1;
-		}
+//		@Override
+//		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
+//			return types.stream().distinct().count() == 1;
+//		}
 	},
 	/**
 	 * 花牌单元，通常是补花形成的牌组
@@ -213,14 +215,14 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			throw new IllegalArgumentException(tiles.toString());
 		}
 
-		@Override
-		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
-			return types.stream().allMatch(type -> type == TileType.ZI_HUA);
-		}
+//		@Override
+//		protected boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types) {
+//			return types.stream().allMatch(type -> type == TileType.ZI_HUA);
+//		}
 	};
 
 	@SuppressWarnings("unused")
@@ -252,14 +254,14 @@ public enum DefaultTileUnitType implements TileUnitType {
 	 */
 	protected abstract boolean isLegalTilesWithCorrectSize(Collection<Tile> tiles);
 
-	@Override
-	public boolean isLegalTileTypes(Collection<TileType> types) {
-		if (types.size() != size())
-			return false;
-		return isLegalTileTypesWithCorrectSize(types);
-	}
+//	@Override
+//	public boolean isLegalTileTypes(Collection<TileType> types) {
+//		if (types.size() != size())
+//			return false;
+//		return isLegalTileTypesWithCorrectSize(types);
+//	}
 
-	protected abstract boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types);
+//	protected abstract boolean isLegalTileTypesWithCorrectSize(Collection<TileType> types);
 
 	/**
 	 * 查找集合所能组成的牌型缺失的牌
@@ -267,7 +269,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 	 * @param tiles
 	 * @return
 	 */
-	public List<List<TileType>> getLackedTypesForTiles(Collection<Tile> tiles) {
+	public List<List<Tile>> getLackedTypesForTiles(Collection<Tile> tiles) {
 		if (tiles.size() > size())
 			return emptyList();
 		if (tiles.size() == size())
@@ -277,5 +279,5 @@ public enum DefaultTileUnitType implements TileUnitType {
 		return getLackedTypesForLessTiles(tiles);
 	}
 
-	protected abstract List<List<TileType>> getLackedTypesForLessTiles(Collection<Tile> tiles);
+	protected abstract List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles);
 }

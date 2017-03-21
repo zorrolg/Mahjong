@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.citywar.dice.entity.FriendInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.LevelMgr;
 import com.citywar.manager.RobotMgr;

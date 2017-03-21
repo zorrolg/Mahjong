@@ -8,7 +8,7 @@ import java.util.List;
 import com.citywar.commands.AbstractCommandHandle;
 import com.citywar.commands.ConsoleCmdAnnotation;
 import com.citywar.commands.PrivLevel;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;

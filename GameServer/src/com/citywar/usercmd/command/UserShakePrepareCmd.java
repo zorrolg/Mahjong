@@ -1,7 +1,7 @@
 package com.citywar.usercmd.command;
 
+import com.citywar.game.GamePlayer;
 import com.citywar.game.action.UserShakeAction;
-import com.citywar.gameobjects.GamePlayer;
 import com.citywar.room.BaseRoom;
 import com.citywar.socket.Packet;
 import com.citywar.type.PlayerState;

@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.citywar.bll.common.LanguageMgr;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.type.TaskConditionType;
 import com.citywar.type.UserCmdOutType;

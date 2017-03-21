@@ -6,7 +6,7 @@ package com.citywar.usercmd.command;
 import java.util.List;
 
 import com.citywar.dice.entity.ShopGoodInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ShopMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

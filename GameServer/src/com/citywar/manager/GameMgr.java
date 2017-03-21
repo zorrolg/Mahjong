@@ -20,7 +20,7 @@ import com.citywar.dice.entity.HallTypeInfo;
 import com.citywar.dice.entity.PengConfigInfo;
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.room.BaseRoom;
 import com.citywar.type.GameState;
 import com.citywar.type.GameType;

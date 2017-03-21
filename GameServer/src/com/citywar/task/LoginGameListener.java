@@ -5,7 +5,7 @@ import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserTaskInfo;
 import com.citywar.event.IEventListener;
 import com.citywar.event.IEventSource;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.TaskMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.TaskConditionType;

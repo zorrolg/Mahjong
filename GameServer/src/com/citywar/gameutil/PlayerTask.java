@@ -15,7 +15,7 @@ import com.citywar.dice.entity.TaskInfo;
 import com.citywar.dice.entity.UserTaskInfo;
 import com.citywar.event.BaseMultiEventSource;
 import com.citywar.event.IEventSource;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.TaskMgr;
 import com.citywar.task.AddFriendListener;
 import com.citywar.task.CardDeveloperListener;

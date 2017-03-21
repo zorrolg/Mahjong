@@ -9,7 +9,7 @@ import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.TaskInfo;
 import com.citywar.dice.entity.TaskPrize;
 import com.citywar.dice.entity.UserTaskInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.TaskMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.TaskConditionType;

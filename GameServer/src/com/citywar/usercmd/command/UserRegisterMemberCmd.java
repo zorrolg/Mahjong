@@ -20,7 +20,7 @@ import com.citywar.dice.entity.PlayerStage;
 import com.citywar.dice.entity.UserBuildInfo;
 import com.citywar.dice.entity.UserCardInfo;
 import com.citywar.dice.entity.UserTaskInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.CardMgr;
 import com.citywar.manager.LetterMgr;
 import com.citywar.manager.LevelMgr;

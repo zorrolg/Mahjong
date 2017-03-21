@@ -8,7 +8,7 @@ import java.util.List;
 import com.citywar.dice.entity.UserRefWorkInfo;
 import com.citywar.dice.entity.UserReferenceInfo;
 import com.citywar.dice.entity.UserReferenceLogInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.LevelMgr;
 import com.citywar.manager.ReferenceMgr;

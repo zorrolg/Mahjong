@@ -22,7 +22,7 @@ import com.citywar.dice.entity.AroundUserComparator;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.PlayerSlaveCount;
 import com.citywar.dice.entity.UserDayActivityInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.PlayerInfoAndAround;
 import com.citywar.util.DistanceUtil;
 import com.citywar.util.GeohashUtil;

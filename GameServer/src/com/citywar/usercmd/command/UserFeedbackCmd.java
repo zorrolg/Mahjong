@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import com.citywar.bll.common.LanguageMgr;
 import com.citywar.dice.entity.FeedbackInfo;
 import com.citywar.dice.entity.Option;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.FeedbackMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

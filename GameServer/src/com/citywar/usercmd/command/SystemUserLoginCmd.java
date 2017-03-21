@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import com.citywar.ServerClient;
 import com.citywar.bll.PlayerBussiness;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;
 import com.citywar.type.UserCmdType;

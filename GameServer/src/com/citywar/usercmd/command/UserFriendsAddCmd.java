@@ -10,7 +10,7 @@ import com.citywar.bll.FriendsBussiness;
 import com.citywar.dice.entity.FriendInfo;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserLetter;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.GamePlayerUtil;
 import com.citywar.manager.KKMgr;
 import com.citywar.room.BaseRoom;

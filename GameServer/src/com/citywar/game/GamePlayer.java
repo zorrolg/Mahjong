@@ -1,7 +1,7 @@
 /**
  *All rights reserved. This material is confidential and proprietary to CityWar
  */
-package com.citywar.gameobjects;
+package com.citywar.game;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -36,7 +36,6 @@ import com.citywar.dice.entity.UserItemInfo;
 import com.citywar.dice.entity.UserReferenceInfo;
 import com.citywar.dice.entity.UserReward;
 import com.citywar.dice.entity.UserTaskInfo;
-import com.citywar.game.BaseGame;
 import com.citywar.gameutil.PlayerAroudUser;
 import com.citywar.gameutil.PlayerDayActivity;
 import com.citywar.gameutil.PlayerGift;

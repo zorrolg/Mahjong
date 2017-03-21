@@ -1,6 +1,6 @@
 package com.citywar.usercmd.command;
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.RoomMgr;
 import com.citywar.room.BaseRoom;
 import com.citywar.socket.Packet;

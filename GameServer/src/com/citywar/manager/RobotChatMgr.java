@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
 
 import com.citywar.bll.RobotChatBussiness;
 import com.citywar.dice.entity.RobotChatInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.room.BaseRoom;
 import com.citywar.util.Config;
 import com.citywar.util.ThreadSafeRandom;

@@ -6,7 +6,7 @@ package com.citywar.usercmd.command;
 import org.apache.log4j.Logger;
 
 import com.citywar.bll.FriendsBussiness;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;
 import com.citywar.type.UserCmdType;

@@ -5,7 +5,7 @@ import java.util.List;
 import com.citywar.dice.entity.GiftBag;
 import com.citywar.dice.entity.ItemTemplateInfo;
 import com.citywar.dice.entity.ShopGoodInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.GiftBagMgr;
 import com.citywar.manager.ShopMgr;
 import com.citywar.socket.Packet;

@@ -6,7 +6,7 @@ import java.util.List;
 import com.citywar.dice.entity.DrawGoodInfo;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.UserReward;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.DrawMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

@@ -21,7 +21,7 @@ import com.citywar.dice.entity.StageInfo;
 import com.citywar.dice.entity.StagePlayerInfo;
 import com.citywar.dice.entity.StagePrizeInfo;
 import com.citywar.dice.entity.StageRoundInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.KKMgr;
 import com.citywar.manager.RobotMgr;

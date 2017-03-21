@@ -5,7 +5,7 @@ import java.util.List;
 import com.citywar.bll.common.LanguageMgr;
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;

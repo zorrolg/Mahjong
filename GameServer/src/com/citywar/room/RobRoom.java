@@ -6,7 +6,7 @@ package com.citywar.room;
 
 
 import com.citywar.dice.entity.HallTypeInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 
 /**
  * 游戏基本房间信息

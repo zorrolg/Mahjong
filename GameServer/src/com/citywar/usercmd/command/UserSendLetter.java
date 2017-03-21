@@ -11,7 +11,7 @@ import com.citywar.bll.common.LanguageMgr;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserLetter;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.ErrorMgr;
 import com.citywar.manager.LetterMgr;

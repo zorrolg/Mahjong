@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.websocket.Session;
 
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 
 

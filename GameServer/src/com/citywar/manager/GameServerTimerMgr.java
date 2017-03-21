@@ -25,7 +25,7 @@ import com.citywar.dice.entity.DayRecordInfo;
 import com.citywar.dice.entity.DayRetainedRateInfo;
 import com.citywar.dice.entity.FiveMinSummaryInfo;
 import com.citywar.dice.entity.GameTypeCountInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.GamePlayerUtil;
 import com.citywar.util.Config;
 import com.citywar.util.TimeUtil;

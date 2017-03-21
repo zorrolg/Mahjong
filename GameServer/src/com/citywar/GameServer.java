@@ -21,7 +21,7 @@ import org.apache.mina.filter.logging.LoggingFilter;
 import com.citywar.bll.common.LanguageMgr;
 import com.citywar.commands.ConsoleCommandMgr;
 import com.citywar.dice.db.DBManager;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.manager.AntiAddictionMgr;
 import com.citywar.manager.BuildMgr;

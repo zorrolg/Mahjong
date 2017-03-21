@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.citywar.bll.FriendsBussiness;
 import com.citywar.dice.entity.FriendInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;
 import com.citywar.type.UserCmdType;

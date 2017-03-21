@@ -10,7 +10,7 @@ import com.citywar.bll.UserVIPEditionBussiness;
 import com.citywar.dice.entity.GiftBag;
 import com.citywar.dice.entity.GiftBagItem;
 import com.citywar.dice.entity.UserVIPEditionInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 
 
 /** 

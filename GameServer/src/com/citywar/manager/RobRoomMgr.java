@@ -10,7 +10,7 @@ import java.util.Random;
 import com.citywar.bll.RobotBussiness;
 import com.citywar.dice.entity.HallTypeInfo;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.hall.BaseHall;
 import com.citywar.room.RobRoom;
 

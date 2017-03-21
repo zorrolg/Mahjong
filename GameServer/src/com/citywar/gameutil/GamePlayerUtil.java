@@ -6,7 +6,7 @@ import java.util.Calendar;
 import com.citywar.bll.FriendsBussiness;
 import com.citywar.bll.PlayerBussiness;
 import com.citywar.dice.entity.PlayerInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.manager.RobotMgr;

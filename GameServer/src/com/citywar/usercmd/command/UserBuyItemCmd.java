@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 import com.citywar.common.BaseItem;
 import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.ShopGoodInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.ShopMgr;
 import com.citywar.socket.Packet;
 import com.citywar.type.PropType;

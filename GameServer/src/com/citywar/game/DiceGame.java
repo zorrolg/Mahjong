@@ -19,7 +19,6 @@ import com.citywar.game.action.RobotProcessAction;
 import com.citywar.game.action.StartPrepareAction;
 import com.citywar.game.action.Dice.DiceCheckGameStateAction;
 import com.citywar.game.action.Dice.DiceProcessAction;
-import com.citywar.gameobjects.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.gameobjects.ai.DicePointFactory;
 import com.citywar.manager.GameMgr;

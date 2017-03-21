@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.management.relation.Relation;
+import com.citywar.gameobjects.mahjong.PlayerLocation.Relation;
 
 /**
  * 牌组，即玩家的牌中除活牌外的若干个组，通常是吃、碰、杠等动作形成。
- * 
+ *
  */
 public class TileGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,7 +21,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 新建一个实例。
-	 * 
+	 *
 	 * @param type
 	 *            类型
 	 * @param gotTile
@@ -33,11 +33,9 @@ public class TileGroup implements Serializable {
 	 * @throws IllegalArgumentException
 	 *             不合法
 	 */
-	public TileGroup(TileGroupType type, Tile gotTile, Relation fromRelation,
-			Set<Tile> tiles) {
+	public TileGroup(TileGroupType type, Tile gotTile, Relation fromRelation, Set<Tile> tiles) {
 		if (!type.isLegalTiles(tiles))
-			throw new IllegalArgumentException("Illegal group tiles：[" + type
-					+ "]" + Arrays.asList(tiles));
+			throw new IllegalArgumentException("Illegal group tiles：[" + type + "]" + Arrays.asList(tiles));
 
 		this.type = type;
 		this.gotTile = gotTile;
@@ -47,7 +45,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 新建一个实例，没有从其他玩家得到的牌。
-	 * 
+	 *
 	 * @param type
 	 *            类型
 	 * @param tiles
@@ -61,7 +59,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 返回类型。
-	 * 
+	 *
 	 * @return 类型
 	 */
 	public TileGroupType getType() {
@@ -70,7 +68,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 返回牌组中所有牌。
-	 * 
+	 *
 	 * @return tiles 集合
 	 */
 	public Set<Tile> getTiles() {
@@ -79,7 +77,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 返回得牌来自于哪个关系的玩家。
-	 * 
+	 *
 	 * @return 玩家位置
 	 */
 	public Relation getFromRelation() {
@@ -88,7 +86,7 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * 返回得牌。
-	 * 
+	 *
 	 * @return 得牌
 	 */
 	public Tile getGotTile() {
@@ -100,8 +98,7 @@ public class TileGroup implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((gotTile == null) ? 0 : gotTile.hashCode());
-		result = prime * result
-				+ ((fromRelation == null) ? 0 : fromRelation.hashCode());
+		result = prime * result + ((fromRelation == null) ? 0 : fromRelation.hashCode());
 		result = prime * result + ((tiles == null) ? 0 : tiles.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
@@ -138,13 +135,12 @@ public class TileGroup implements Serializable {
 
 	/**
 	 * Just for debug.
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "[" + type + " " + gotTile + " from " + fromRelation
-				+ " to compose " + tiles + "]";
+		return "[" + type + " " + gotTile + " from " + fromRelation + " to compose " + tiles + "]";
 	}
 
 }

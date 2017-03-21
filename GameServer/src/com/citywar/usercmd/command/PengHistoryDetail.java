@@ -6,7 +6,7 @@ import net.sf.json.JSONArray;
 
 import com.citywar.bll.PengGameBussiness;
 import com.citywar.dice.entity.PengGameDetail;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.PengGameScore;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;

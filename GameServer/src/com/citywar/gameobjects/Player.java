@@ -9,6 +9,7 @@ import java.util.List;
 import com.citywar.dice.entity.RobotLevelInfo;
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
+import com.citywar.game.GamePlayer;
 import com.citywar.manager.RobotLevelMgr;
 import com.citywar.type.PlayerState;
 import com.citywar.util.ThreadSafeRandom;

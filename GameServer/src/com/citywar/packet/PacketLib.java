@@ -21,7 +21,7 @@ import com.citywar.dice.entity.UserLetter;
 import com.citywar.dice.entity.UserReferenceInfo;
 import com.citywar.dice.entity.UserReward;
 import com.citywar.dice.entity.UserTaskInfo;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameobjects.Player;
 import com.citywar.gameutil.UserProperty;
 import com.citywar.manager.AwardMgr;

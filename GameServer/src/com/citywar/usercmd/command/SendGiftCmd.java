@@ -11,7 +11,7 @@ import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserGiftInfo;
 import com.citywar.dice.entity.UserLetter;
-import com.citywar.gameobjects.GamePlayer;
+import com.citywar.game.GamePlayer;
 import com.citywar.gameutil.GamePlayerUtil;
 import com.citywar.manager.GiftTemplateMgr;
 import com.citywar.manager.UserGiftMgr;
