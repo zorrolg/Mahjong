@@ -75,7 +75,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile.TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() == 1) {
 				Tile tile = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 				// rank类型非NumberRank的，非法
