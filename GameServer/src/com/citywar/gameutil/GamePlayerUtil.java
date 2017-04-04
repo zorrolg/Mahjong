@@ -7,7 +7,7 @@ import com.citywar.bll.FriendsBussiness;
 import com.citywar.bll.PlayerBussiness;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.manager.RobotMgr;
 import com.citywar.manager.WorldMgr;

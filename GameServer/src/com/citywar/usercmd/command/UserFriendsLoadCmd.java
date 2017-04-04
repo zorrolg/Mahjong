@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import com.citywar.dice.entity.FriendInfo;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.manager.LevelMgr;
 import com.citywar.manager.RobotMgr;
 import com.citywar.manager.WorldMgr;

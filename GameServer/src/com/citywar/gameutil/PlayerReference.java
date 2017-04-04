@@ -13,7 +13,7 @@ import com.citywar.dice.entity.UserRefWorkInfo;
 import com.citywar.dice.entity.UserReferenceInfo;
 import com.citywar.dice.entity.UserReferenceLogInfo;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.manager.ReferenceMgr;
 import com.citywar.manager.RobotMgr;
 import com.citywar.manager.WorldMgr;

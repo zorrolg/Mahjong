@@ -5,8 +5,8 @@ package com.citywar.game.action.Dice;
 
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
+import com.citywar.game.Player;
 import com.citywar.game.action.IAction;
-import com.citywar.gameobjects.Player;
 import com.citywar.socket.Packet;
 import com.citywar.type.DiceCmdType;
 import com.citywar.type.GameState;

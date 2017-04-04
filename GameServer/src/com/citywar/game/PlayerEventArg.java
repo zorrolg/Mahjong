@@ -1,7 +1,7 @@
 /**
  *All rights reserved. This material is confidential and proprietary to CityWar
  */
-package com.citywar.gameobjects;
+package com.citywar.game;
 
 import com.citywar.event.BaseEventArg;
 

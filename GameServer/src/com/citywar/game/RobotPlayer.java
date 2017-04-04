@@ -1,7 +1,4 @@
-package com.citywar.gameobjects;
-
-import com.citywar.game.BaseGame;
-import com.citywar.game.GamePlayer;
+package com.citywar.game;
 
 public class RobotPlayer extends Player
 {

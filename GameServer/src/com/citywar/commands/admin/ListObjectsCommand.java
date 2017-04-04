@@ -9,7 +9,7 @@ import com.citywar.commands.AbstractCommandHandle;
 import com.citywar.commands.ConsoleCmdAnnotation;
 import com.citywar.commands.PrivLevel;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;
 import com.citywar.manager.ManagerClient;

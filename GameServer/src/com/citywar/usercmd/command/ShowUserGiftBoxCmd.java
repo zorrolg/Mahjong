@@ -8,7 +8,7 @@ import java.util.List;
 import com.citywar.dice.entity.GiftTemplateInfo;
 import com.citywar.dice.entity.UserGiftIntegrationInfo;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.gameutil.PlayerGift;
 import com.citywar.manager.GiftTemplateMgr;
 import com.citywar.manager.RobotMgr;

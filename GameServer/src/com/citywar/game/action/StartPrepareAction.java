@@ -6,7 +6,7 @@ import com.citywar.bll.common.LanguageMgr;
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;
 import com.citywar.room.BaseRoom;

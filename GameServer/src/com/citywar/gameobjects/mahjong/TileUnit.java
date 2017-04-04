@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.citywar.gameobjects.TileType;
-
 /**
  * 牌的单元，即判断和牌时对牌的分组，如顺子、刻子、杠子、将牌等。
  */

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.citywar.dice.entity.UserLetter;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.UserNoReadyLetter;
+import com.citywar.game.UserNoReadyLetter;
 import com.citywar.socket.Packet;
 import com.citywar.type.UserCmdOutType;
 import com.citywar.type.UserCmdType;

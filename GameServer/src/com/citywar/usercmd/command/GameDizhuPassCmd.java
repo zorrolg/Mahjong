@@ -4,7 +4,7 @@
 package com.citywar.usercmd.command;
 
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.room.BaseRoom;
 import com.citywar.socket.Packet;
 import com.citywar.type.DiZhuCmdType;

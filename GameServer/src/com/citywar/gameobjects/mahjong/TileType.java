@@ -1,7 +1,5 @@
-package com.citywar.gameobjects;
+package com.citywar.gameobjects.mahjong;
 
-import com.citywar.gameobjects.mahjong.TileRank;
-import com.citywar.gameobjects.mahjong.TileRank.HuaRank;
 import com.citywar.gameobjects.mahjong.TileRank.NumberRank;
 import com.citywar.gameobjects.mahjong.TileRank.ZiRank;
 

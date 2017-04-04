@@ -2,7 +2,7 @@ package com.citywar.game.action;
 
 import com.citywar.game.BaseGame;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.type.GameState;
 
 /**

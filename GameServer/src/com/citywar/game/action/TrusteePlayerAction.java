@@ -1,7 +1,7 @@
 package com.citywar.game.action;
 
 import com.citywar.game.BaseGame;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 
 public class TrusteePlayerAction extends AbstractDelayAction
 {

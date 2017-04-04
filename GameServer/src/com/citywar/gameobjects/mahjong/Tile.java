@@ -2,14 +2,23 @@ package com.citywar.gameobjects.mahjong;
 
 import java.util.List;
 
-import com.citywar.gameobjects.TileType;
+import com.citywar.gameobjects.mahjong.TileRank.HuaRank;
+import com.citywar.gameobjects.mahjong.TileRank.NumberRank;
+import com.citywar.gameobjects.mahjong.TileRank.ZiRank;
 import com.google.common.collect.Lists;
 
 public class Tile {
 
+	/**
+	 * tile 的code
+	 */
 	private byte code;
 
-	public TileType type;
+	private TileType type;
+
+	private TileRank<? extends TileRank<?>> rank;
+	
+	private TileSuit suit;
 
 	public static List<Tile> all;
 
@@ -20,30 +29,38 @@ public class Tile {
 			byte max = type.getMax();
 			for (byte code = min; code <= max;) {
 				Tile tile = new Tile(code, type);
+				int subType = code / 4;
 				// 如果是字花段，0x1F代表已经到花牌
-				if (type == TileType.ZI_HUA && code > 0x1F) {
-					code = (byte) (code + 0x4);
-				} else {
+				if (code <= 0x1F) {
 					code++;
+					if (type.getClass() != TileType.ZI_HUA.getClass()) {
+						NumberRank rank = NumberRank.valueOf(subType);
+						tile.rank = rank;
+					} else {
+						ZiRank rank = ZiRank.valueOf(subType);
+						tile.rank = rank;
+					}
+				} else {
+					code = (byte) (code + 0x4);
+					HuaRank rank = HuaRank.valueOf(subType);
+					tile.rank = rank;
 				}
 				all.add(tile);
 			}
 		}
 	}
 
-	public Tile(byte code) {
-		this.code = code;
-	}
-
 	public Tile(byte code, TileType type) {
 		this.code = (byte) (type.getCode() ^ code);
 		this.type = type;
+		suit = new TileSuit(type, rank);
 	}
 
 	public Tile(byte code, TileType type, int number) {
 		this.code = (byte) (type.getCode() ^ code);
 		this.code = (byte) (code ^ (byte) number);
 		this.type = type;
+		suit = new TileSuit(type, rank);
 	}
 
 	public int getCode() {
@@ -77,8 +94,7 @@ public class Tile {
 	}
 
 	/**
-	 * 
-	 * 8條3 10100010 offset = -1 7條1 00011100
+	 * 根据传入的offset获取新的tile e.p: 8條3 10100010 offset = -1 7條3 00011110
 	 * 
 	 * @param offset
 	 * @return
@@ -111,8 +127,14 @@ public class Tile {
 		return type;
 	}
 
-	public static byte toUnsignedByte(byte x) {
-		return (byte) (x & 0xFF);
+	/**
+	 * 根据类型和子类型获取code
+	 * 
+	 * @return
+	 */
+	public byte subTypeCode() {
+		int code = (this.getCode() & 0xFC);
+		return (byte) (code >> 2);
 	}
 
 	/**
@@ -120,34 +142,41 @@ public class Tile {
 	 * 
 	 * @return 1,2,3,4
 	 */
-	public byte getTileNum() {
+	public byte tileNum() {
 		return (byte) (getTileIndex() + 1);
 	}
 
 	public TileType type() {
 		return this.type;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public TileRank<? extends TileRank> rank() {
+		return this.rank;
+	}
 
+	public TileSuit suit() {
+		return this.suit;
+	}
 	public String toBinaryString() {
 		return Integer.toBinaryString(this.getCode());
 	}
 
 	@Override
 	public String toString() {
-		// return Integer.toUnsignedString(Tile.toUnsignedByte(this.code), 2);
+		 return this.rank + this.type.toString() + tileNum() + " : " + toBinaryString();
 		// return String.format("0x%s",
 		// Integer.toBinaryString(Tile.toUnsignedByte(this.code)));
-		return Integer.toString(this.getTileSubType(), 10) + this.type.toString() + this.getTileNum() + " "
-				+ toBinaryString();
+//		return Integer.toString(this.getTileSubType(), 10) + this.type.toString() + this.tileNum() + " "
+//				+ toBinaryString();
 	}
 
-	public static void main(String[] args) {
-		System.out.println(all);
-
-		Tile tile = new Tile((byte) 0x22, TileType.TIAO);
-
-		System.out.println(tile);
-		System.out.println(tile.getTileOffset(-1));
-		System.exit(0);
+	public class TileSuit {
+		TileType type;
+		TileRank<? extends TileRank<?>> rank;
+		TileSuit(TileType type, TileRank<? extends TileRank<?>> rank) {
+			this.type = type;
+			this.rank = rank;
+		}
 	}
 }

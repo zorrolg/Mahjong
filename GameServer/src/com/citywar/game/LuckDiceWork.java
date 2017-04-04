@@ -1,4 +1,4 @@
-package com.citywar.gameobjects;
+package com.citywar.game;
 
 import com.citywar.gameobjects.ai.DicePointFactory;
 import com.citywar.util.ThreadSafeRandom;

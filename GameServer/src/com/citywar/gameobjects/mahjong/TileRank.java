@@ -28,7 +28,7 @@ public interface TileRank<T extends TileRank<T>> extends Comparable<T> {
 			return number;
 		}
 
-		public static NumberRank ofNumber(int number) {
+		public static NumberRank valueOf(int number) {
 			return values()[number - 1];
 		}
 	}
@@ -36,30 +36,38 @@ public interface TileRank<T extends TileRank<T>> extends Comparable<T> {
 	/**
 	 * 字牌的种类。
 	 * <ul>
-	 * 	<li>东
-	 * 	<li>南
-	 * 	<li>西
-	 * 	<li>北
+	 * <li>东
+	 * <li>南
+	 * <li>西
+	 * <li>北
 	 * </ul>
 	 */
 	public enum ZiRank implements TileRank<ZiRank> {
-		EAST, SOUTH, WEST, NORTH, CENTRE, FORTUNE, BLANK
+		EAST, SOUTH, WEST, NORTH, CENTRE, FORTUNE, BLANK;
+
+		public static ZiRank valueOf(int number) {
+			return values()[number - 1];
+		}
 	}
 
 	/**
 	 * 花牌的种类。
 	 * <ul>
-	 * 	<li>春
-	 * 	<li>夏
-	 * 	<li>秋
-	 * 	<li>冬
-	 * 	<li>梅
-	 * 	<li>兰
-	 * 	<li>竹
-	 * 	<li>菊
+	 * <li>春
+	 * <li>夏
+	 * <li>秋
+	 * <li>冬
+	 * <li>梅
+	 * <li>兰
+	 * <li>竹
+	 * <li>菊
 	 * </ul>
 	 */
 	public enum HuaRank implements TileRank<HuaRank> {
-		SPRING, SUMMER, AUTUMN, WINTER, PLUM, ORCHID, BAMBOO, CHRYSANTHEMUM
+		SPRING, SUMMER, AUTUMN, WINTER, PLUM, ORCHID, BAMBOO, CHRYSANTHEMUM;
+
+		public static HuaRank valueOf(int number) {
+			return values()[number % 8];
+		}
 	}
 }

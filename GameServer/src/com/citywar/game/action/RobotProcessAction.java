@@ -3,7 +3,7 @@ package com.citywar.game.action;
 
 import com.citywar.game.BaseGame;
 import com.citywar.game.DiceGame;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.manager.RobotChatMgr;
 import com.citywar.type.GameState;
 import com.citywar.util.ThreadSafeRandom;

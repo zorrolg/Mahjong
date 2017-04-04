@@ -12,7 +12,7 @@ import com.citywar.dice.entity.Option;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.UserLetter;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.manager.ErrorMgr;
 import com.citywar.manager.LetterMgr;
 import com.citywar.manager.RobotMgr;

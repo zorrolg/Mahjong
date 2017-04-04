@@ -1,4 +1,4 @@
-package com.citywar.gameobjects;
+package com.citywar.game;
 
 import com.citywar.dice.entity.UserLetter;
 

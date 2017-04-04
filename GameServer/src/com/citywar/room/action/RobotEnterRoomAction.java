@@ -1,8 +1,8 @@
 package com.citywar.room.action;
 
 import com.citywar.game.GamePlayer;
+import com.citywar.game.Player;
 import com.citywar.game.action.UserShakeAction;
-import com.citywar.gameobjects.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.manager.HallMgr;
 import com.citywar.manager.RobotMgr;

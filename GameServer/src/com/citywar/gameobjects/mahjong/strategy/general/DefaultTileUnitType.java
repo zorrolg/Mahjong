@@ -15,9 +15,10 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.citywar.gameobjects.TileType;
 import com.citywar.gameobjects.mahjong.Tile;
+import com.citywar.gameobjects.mahjong.Tile.TileSuit;
 import com.citywar.gameobjects.mahjong.TileRank.NumberRank;
+import com.citywar.gameobjects.mahjong.TileType;
 import com.citywar.gameobjects.mahjong.TileUnitType;
 
 /**
@@ -36,9 +37,9 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
-			return singletonList(singletonList(type));
+			return singletonList(singletonList(type.suit()));
 		}
 
 //		@Override
@@ -74,21 +75,21 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<Tile.TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() == 1) {
 				Tile tile = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 				// rank类型非NumberRank的，非法
 				if (tile.type().rank() != NumberRank.class)
 					return emptyList();
 
-				List<List<Tile>> result = new ArrayList<>();
+				List<List<Tile.TileSuit>> result = new ArrayList<>();
 				int number = tile.getTileSubType();
 				if (number >= 3)
-					result.add(Arrays.asList(tile.getTileOffset(-2), tile.getTileOffset(-1)));
+					result.add(Arrays.asList(tile.getTileOffset(-2).suit(), tile.getTileOffset(-1).suit()));
 				if (number >= 2 && number <= 8)
-					result.add(Arrays.asList(tile.getTileOffset(-1), tile.getTileOffset(1)));
+					result.add(Arrays.asList(tile.getTileOffset(-1).suit(), tile.getTileOffset(1).suit()));
 				if (number <= 7)
-					result.add(Arrays.asList(tile.getTileOffset(1), tile.getTileOffset(2)));
+					result.add(Arrays.asList(tile.getTileOffset(1).suit(), tile.getTileOffset(2).suit()));
 				return result;
 
 			} else if (tiles.size() == 2) {
@@ -100,7 +101,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 				if (tiles.stream().map(tile -> tile.type()).distinct().count() > 1)
 					return emptyList();
 
-				List<List<Tile>> result = new ArrayList<>();
+				List<List<Tile.TileSuit>> result = new ArrayList<>();
 				Iterator<Tile> tileItr = tiles.iterator();
 				Tile tile1 = tileItr.next();
 				Tile tile2 = tileItr.next();
@@ -118,13 +119,13 @@ public enum DefaultTileUnitType implements TileUnitType {
 				switch (distance) {
 				case 1:
 					if (number1 >= 2)
-						result.add(singletonList(tile1.getTileOffset(-1)));
+						result.add(singletonList(tile1.getTileOffset(-1).suit()));
 					if (number2 <= 8)
-						result.add(singletonList(tile2.getTileOffset(1)));
+						result.add(singletonList(tile2.getTileOffset(1).suit()));
 					break;
 					//夹张
 				case 2:
-					result.add(singletonList(tile1.getTileOffset(1)));
+					result.add(singletonList(tile1.getTileOffset(1).suit()));
 					break;
 				}
 				return result;
@@ -165,14 +166,14 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() > 1 && tiles.stream().map(Tile::type).distinct().count() > 1)
 				return emptyList();
 
 			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 			if (tiles.size() == size() - 1)
-				return singletonList(singletonList(type));
-			return singletonList(nCopies(size() - tiles.size(), type));
+				return singletonList(singletonList(type.suit()));
+			return singletonList(nCopies(size() - tiles.size(), type.suit()));
 		}
 
 //		@Override
@@ -190,14 +191,14 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			if (tiles.size() > 1 && tiles.stream().map(Tile::type).distinct().count() > 1)
 				return emptyList();
 
 			Tile type = tiles instanceof List ? ((List<Tile>) tiles).get(0) : tiles.iterator().next();
 			if (tiles.size() == size() - 1)
-				return singletonList(singletonList(type));
-			return singletonList(nCopies(size() - tiles.size(), type));
+				return singletonList(singletonList(type.suit()));
+			return singletonList(nCopies(size() - tiles.size(), type.suit()));
 		}
 
 //		@Override
@@ -215,7 +216,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 		}
 
 		@Override
-		protected List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
+		protected List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles) {
 			throw new IllegalArgumentException(tiles.toString());
 		}
 
@@ -269,7 +270,7 @@ public enum DefaultTileUnitType implements TileUnitType {
 	 * @param tiles
 	 * @return
 	 */
-	public List<List<Tile>> getLackedTypesForTiles(Collection<Tile> tiles) {
+	public List<List<TileSuit>> getLackedTypesForTiles(Collection<Tile> tiles) {
 		if (tiles.size() > size())
 			return emptyList();
 		if (tiles.size() == size())
@@ -279,5 +280,5 @@ public enum DefaultTileUnitType implements TileUnitType {
 		return getLackedTypesForLessTiles(tiles);
 	}
 
-	protected abstract List<List<Tile>> getLackedTypesForLessTiles(Collection<Tile> tiles);
+	protected abstract List<List<TileSuit>> getLackedTypesForLessTiles(Collection<Tile> tiles);
 }

@@ -23,7 +23,7 @@ import com.citywar.dice.entity.HallTypeInfo;
 import com.citywar.dice.entity.PlayerInfo;
 import com.citywar.dice.entity.StagePlayerInfo;
 import com.citywar.game.GamePlayer;
-import com.citywar.gameobjects.Player;
+import com.citywar.game.Player;
 import com.citywar.hall.BaseHall;
 import com.citywar.util.Config;
 import com.citywar.util.ThreadSafeRandom;
