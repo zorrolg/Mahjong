@@ -179,4 +179,7 @@ public class Tile {
 			this.rank = rank;
 		}
 	}
+	public static void main(String[] args) {
+        System.out.println(all);
+    }
 }

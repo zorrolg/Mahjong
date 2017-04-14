@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,8 +60,6 @@ public enum DefaultTileUnitType implements TileUnitType {
 				return false;
 			// rank不连续的，非法
 			int[] numbers = tiles.stream().mapToInt(tile -> (tile.getTileSubType())).sorted().toArray();
-			Optional<Tile> findFirst = tiles.stream().findFirst();
-
 			int crtNumber = 0;
 			for (int number : numbers) {
 				if (crtNumber == 0 || number == crtNumber + 1)
@@ -70,7 +67,6 @@ public enum DefaultTileUnitType implements TileUnitType {
 				else
 					return false;
 			}
-
 			return true;
 		}
 

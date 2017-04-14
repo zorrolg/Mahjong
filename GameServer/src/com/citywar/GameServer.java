@@ -24,8 +24,6 @@ import com.citywar.dice.db.DBManager;
 import com.citywar.game.GamePlayer;
 import com.citywar.manager.AllAroundPlayerInfoMgr;
 import com.citywar.manager.AntiAddictionMgr;
-import com.citywar.manager.BuildMgr;
-import com.citywar.manager.CardMgr;
 import com.citywar.manager.DrawMgr;
 import com.citywar.manager.FeedbackMgr;
 import com.citywar.manager.GameMgr;
@@ -53,7 +51,6 @@ import com.citywar.socket.Packet;
 import com.citywar.socket.WebSocketCodecFactory;
 import com.citywar.usercmd.UserPacketHandler;
 import com.citywar.util.Config;
-import com.citywar.util.DirtyCharUtil;
 import com.citywar.websocket.WebSocketServer;
 
 
@@ -80,7 +77,7 @@ public class GameServer extends BaseServer
 	// 服务器id
 	private int serverId = 0;
 
-	private String serverConn = "";
+	private String serverConn = "118.89.49.89:3306/";
 
 	private static boolean isRunning = false;
 
@@ -190,17 +187,17 @@ public class GameServer extends BaseServer
 			return false;
 
 		// 初始化脏字符处理
-		if (!initComponent(DirtyCharUtil.illegalcharacterInit(Config.getValue("server.dirtycharPath")),
-				"initialize dirtychar file"))
-			return false;
+//		if (!initComponent(DirtyCharUtil.illegalcharacterInit(Config.getValue("server.dirtycharPath")),
+//				"initialize dirtychar file"))
+//			return false;
 
 		// 启动建筑信息管理类, 初始化建筑相关信息, load入内存
-		if (!initComponent(BuildMgr.init(), "initialize BuildMgr"))
-			return false;
+//		if (!initComponent(BuildMgr.init(), "initialize BuildMgr"))
+//			return false;
 
 		// 启动卡片信息管理类, 初始化卡片相关信息, load入内存
-		if (!initComponent(CardMgr.init(), "initialize CardMgr"))
-			return false;
+//		if (!initComponent(CardMgr.init(), "initialize CardMgr"))
+//			return false;
 
 		// 启动等级信息管理类, 初始化等级相关信息, load入内存
 		if (!initComponent(LevelMgr.init(), "initialize LevelMgr"))

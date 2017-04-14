@@ -1,11 +1,12 @@
 package com.citywar.gameobjects.mahjong;
 
-import static com.citywar.gameobjects.mahjong.strategy.general.DefaultTileUnitType.*;
-import static com.citywar.gameobjects.mahjong.action.standard.StandardActionType.*;
+import static com.citywar.gameobjects.mahjong.action.standard.StandardActionType.BUHUA;
+import static com.citywar.gameobjects.mahjong.action.standard.StandardActionType.DRAW;
+import static com.citywar.gameobjects.mahjong.action.standard.StandardActionType.DRAW_BOTTOM;
+import static com.citywar.gameobjects.mahjong.action.standard.StandardActionType.WIN;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
@@ -85,15 +86,22 @@ public class BarBot implements Player {
 		if (selectFuture != null && !selectFuture.isDone())
 			throw new IllegalStateException("Another select task is active.");
 
-		if (Collections.disjoint(actionTypes, BarBotCpgdSelectTask.ACTION_TYPES))
-			return null;
+//		if (Collections.disjoint(actionTypes, BarBotCpgdSelectTask.ACTION_TYPES))
+//			return null;
 
 		// 随机选择思考时间
 		long startTime = System.currentTimeMillis();
 		int thinkingTime = THINKING_TIME_MIN + random.nextInt(THINKING_TIME_MAX - THINKING_TIME_MIN);
 
-		Future<Action> futureResult = ForkJoinPool.commonPool()
-				.submit(new BarBotCpgdSelectTask(contextView, actionTypes));
+		Future<Action> futureResult = (Future<Action>) ForkJoinPool.commonPool()
+				.submit(new Runnable() {
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						
+					}
+				});
 		try {
 			Action action = futureResult.get();
 			long endTime = System.currentTimeMillis();
